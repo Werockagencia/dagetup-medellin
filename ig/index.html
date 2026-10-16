@@ -21,6 +21,9 @@ h2{font-weight:900;font-variation-settings:"wdth" 62;text-transform:uppercase;fo
 .grid.st{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
 figure{margin:0;border:1px solid var(--line)}
 figure img{width:100%;display:block}
+.open{display:block;position:relative;cursor:zoom-in}
+.open::after{content:"Ver grande ↗";position:absolute;right:8px;top:8px;background:var(--ink);color:var(--acid);font:700 11px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;padding:5px 8px;opacity:.9}
+.open:hover img{outline:2px solid var(--acid);outline-offset:-2px}
 figcaption{display:flex;justify-content:space-between;align-items:center;padding:10px}
 a.dl{color:var(--ink);background:var(--acid);text-decoration:none;padding:6px 10px;font-weight:700}
 .cap{border:1px solid var(--line);padding:18px;white-space:pre-wrap;font-size:15px}
@@ -41,11 +44,11 @@ code{color:var(--acid);word-break:break-all}
 
   <h2>Carrusel · 4:5</h2>
   <div class="grid">
-    <figure><img src="carrusel-c1.png" alt="Slide 1: portada Skyfall out now" loading="lazy"><figcaption><span class="mono">01 Portada</span><a class="dl mono" href="carrusel-c1.png" download>Bajar</a></figcaption></figure>
-    <figure><img src="carrusel-c2.png" alt="Slide 2: ficha del lanzamiento" loading="lazy"><figcaption><span class="mono">02 Ficha</span><a class="dl mono" href="carrusel-c2.png" download>Bajar</a></figcaption></figure>
-    <figure><img src="carrusel-c3.png" alt="Slide 3: deep house hipnótico" loading="lazy"><figcaption><span class="mono">03 Sonido</span><a class="dl mono" href="carrusel-c3.png" download>Bajar</a></figcaption></figure>
-    <figure><img src="carrusel-c4.png" alt="Slide 4: del estudio al escenario" loading="lazy"><figcaption><span class="mono">04 Live</span><a class="dl mono" href="carrusel-c4.png" download>Bajar</a></figcaption></figure>
-    <figure><img src="carrusel-c5.png" alt="Slide 5: escúchalo y booking" loading="lazy"><figcaption><span class="mono">05 CTA</span><a class="dl mono" href="carrusel-c5.png" download>Bajar</a></figcaption></figure>
+    <figure><a class="open" href="carrusel-c1.png" target="_blank" rel="noopener" aria-label="Abrir en tamaño completo"><img src="carrusel-c1.png" alt="Slide 1: portada Skyfall out now" loading="lazy"></a><figcaption><span class="mono">01 Portada</span><a class="dl mono" href="carrusel-c1.png" download>Bajar</a></figcaption></figure>
+    <figure><a class="open" href="carrusel-c2.png" target="_blank" rel="noopener" aria-label="Abrir en tamaño completo"><img src="carrusel-c2.png" alt="Slide 2: ficha del lanzamiento" loading="lazy"></a><figcaption><span class="mono">02 Ficha</span><a class="dl mono" href="carrusel-c2.png" download>Bajar</a></figcaption></figure>
+    <figure><a class="open" href="carrusel-c3.png" target="_blank" rel="noopener" aria-label="Abrir en tamaño completo"><img src="carrusel-c3.png" alt="Slide 3: deep house hipnótico" loading="lazy"></a><figcaption><span class="mono">03 Sonido</span><a class="dl mono" href="carrusel-c3.png" download>Bajar</a></figcaption></figure>
+    <figure><a class="open" href="carrusel-c4.png" target="_blank" rel="noopener" aria-label="Abrir en tamaño completo"><img src="carrusel-c4.png" alt="Slide 4: del estudio al escenario" loading="lazy"></a><figcaption><span class="mono">04 Live</span><a class="dl mono" href="carrusel-c4.png" download>Bajar</a></figcaption></figure>
+    <figure><a class="open" href="carrusel-c5.png" target="_blank" rel="noopener" aria-label="Abrir en tamaño completo"><img src="carrusel-c5.png" alt="Slide 5: escúchalo y booking" loading="lazy"></a><figcaption><span class="mono">05 CTA</span><a class="dl mono" href="carrusel-c5.png" download>Bajar</a></figcaption></figure>
   </div>
 
   <h2>Caption del carrusel</h2>
@@ -62,9 +65,9 @@ Y se viene la ruta MEDELLÍN TAKEOVER: live act, DJ set y showcases. Si programa
 
   <h2>Historias · 9:16</h2>
   <div class="grid st">
-    <figure><img src="historia-s1.png" alt="Historia 1: Skyfall out now" loading="lazy"><figcaption><span class="mono">01 Out now</span><a class="dl mono" href="historia-s1.png" download>Bajar</a></figcaption></figure>
-    <figure><img src="historia-s2.png" alt="Historia 2: 6:34 de deep house hipnótico" loading="lazy"><figcaption><span class="mono">02 Teaser</span><a class="dl mono" href="historia-s2.png" download>Bajar</a></figcaption></figure>
-    <figure><img src="historia-s3.png" alt="Historia 3: Medellín Takeover booking" loading="lazy"><figcaption><span class="mono">03 Booking</span><a class="dl mono" href="historia-s3.png" download>Bajar</a></figcaption></figure>
+    <figure><a class="open" href="historia-s1.png" target="_blank" rel="noopener" aria-label="Abrir en tamaño completo"><img src="historia-s1.png" alt="Historia 1: Skyfall out now" loading="lazy"></a><figcaption><span class="mono">01 Out now</span><a class="dl mono" href="historia-s1.png" download>Bajar</a></figcaption></figure>
+    <figure><a class="open" href="historia-s2.png" target="_blank" rel="noopener" aria-label="Abrir en tamaño completo"><img src="historia-s2.png" alt="Historia 2: 6:34 de deep house hipnótico" loading="lazy"></a><figcaption><span class="mono">02 Teaser</span><a class="dl mono" href="historia-s2.png" download>Bajar</a></figcaption></figure>
+    <figure><a class="open" href="historia-s3.png" target="_blank" rel="noopener" aria-label="Abrir en tamaño completo"><img src="historia-s3.png" alt="Historia 3: Medellín Takeover booking" loading="lazy"></a><figcaption><span class="mono">03 Booking</span><a class="dl mono" href="historia-s3.png" download>Bajar</a></figcaption></figure>
   </div>
 
   <h2>Stickers de las historias</h2>
