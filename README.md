@@ -20,8 +20,11 @@ Mientras estén vacíos no se carga ningún script externo. Los eventos se enví
 
 ## Mantenimiento
 - WhatsApp y mensajes predefinidos: constantes `WA` y `MSG` al final de `index.html`.
-- Cuando haya fechas confirmadas, cambia el texto del chip del hero ("Ruta en gestión…").
-- Skyfall aparece como "Próximo lanzamiento" (igual que el EPK); actualízalo cuando salga.
+- Cuando haya fechas confirmadas, cambia el texto `.status` del hero ("Ruta MDE en gestión…").
+- Skyfall: publicado el 30.04.2026 en Mikro Teck Records (verificado en Spotify, track 4a0j4x50akKLUR9qXoDyPn).
 
 ## Migrar a werock.space/dagetup/medellin/
 Copia `index.html` y `assets/` a `public_html/dagetup/medellin/` y reemplaza `https://werockagencia.github.io/dagetup-medellin/` por `https://werock.space/dagetup/medellin/` (canonical, og:url, og:image, JSON-LD). No toca el EPK.
+
+## Dirección visual
+Flyer underground / Berlín: negro `#050505`, hueso `#ecebe6` y un único ácido `#d4ff00`. Archivo condensado (wdth 62) para titulares, JetBrains Mono para etiquetas. El color fuerte lo ponen las fotos reales del festival (verde, rojo, violeta) que rotan en el hero; el resto de fotos van en duotono ácido.
