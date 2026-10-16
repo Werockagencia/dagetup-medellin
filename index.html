@@ -130,7 +130,7 @@ section{position:relative}
 /* Encabezado de sección estilo flyer: índice + etiqueta bilingüe */
 .kick{display:flex;justify-content:space-between;gap:16px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:clamp(28px,4vw,48px)}
 .kick b{color:var(--acid);font-weight:500}
-.h2{font-weight:900;font-variation-settings:"wdth" 62;text-transform:uppercase;font-size:clamp(52px,9.4vw,150px);line-height:.84;letter-spacing:-.01em;margin:0 0 30px}
+.h2{font-weight:900;font-variation-settings:"wdth" 62;text-transform:uppercase;font-size:clamp(44px,9.4vw,150px);line-height:.84;letter-spacing:-.01em;margin:0 0 30px}
 .h2 em{font-style:normal;color:var(--acid)}
 .lead{font-size:clamp(18px,1.6vw,22px);line-height:1.45;color:var(--bone);max-width:58ch;margin:0 0 18px}
 
@@ -172,7 +172,7 @@ section{position:relative}
 .status i{width:8px;height:8px;background:var(--acid);animation:blink 1.2s steps(2) infinite}
 @keyframes blink{50%{opacity:.15}}
 .hero h1{margin:clamp(40px,10vh,120px) 0 0;line-height:.8}
-.hero h1 .a{display:block;white-space:nowrap;font-weight:900;font-variation-settings:"wdth" 62;font-size:clamp(96px,23.5vw,360px);letter-spacing:-.015em;margin-left:-.03em}
+.hero h1 .a{display:block;white-space:nowrap;font-weight:900;font-variation-settings:"wdth" 62;font-size:min(calc((min(100vw, var(--max)) - 2 * var(--gutter)) / 3.36), 390px);letter-spacing:-.015em;margin-left:-.03em}
 .hero h1 .b{display:inline-block;margin-top:.18em;font-family:var(--mono);font-weight:700;font-size:clamp(15px,2.2vw,30px);letter-spacing:.12em;line-height:1;background:var(--acid);color:var(--on-acid);padding:.45em .6em}
 .hero-row{display:grid;gap:22px;margin-top:28px;align-items:end}
 .hero .txt{max-width:44ch;color:#dedcd5;margin:0;font-size:clamp(16px,1.4vw,19px)}
@@ -231,7 +231,7 @@ figcaption{margin-top:12px;color:var(--dim);font-family:var(--mono);font-size:11
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:26px;padding:0;list-style:none}
 .tags li{border:1px solid var(--line-2);padding:6px 10px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:#d6d4cc}
 @media (min-width:900px){.bio-grid{grid-template-columns:5fr 7fr;gap:80px}}
-.bio-grid .h2{font-size:clamp(48px,7.2vw,116px)}
+.bio-grid .h2{font-size:clamp(44px,7.2vw,116px)}
 
 .quick{display:grid;grid-template-columns:1fr;border:1px solid var(--line-2);margin-top:60px}
 .quick div{padding:20px;border-bottom:1px solid var(--line)}

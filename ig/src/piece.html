@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<!-- Plantilla de piezas IG — se renderiza con Chrome headless: piece.html?p=c1 … (ver render.sh) -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500;700&display=block">
+<style>
+:root{--ink:#050505;--bone:#ecebe6;--mute:#a3a29b;--dim:#64635e;--line:rgba(236,235,230,.18);--acid:#d4ff00;
+  --cond:"Archivo",sans-serif;--mono:"JetBrains Mono",monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--ink)}
+body{color:var(--bone);font-family:var(--cond);-webkit-font-smoothing:antialiased}
+.piece{position:relative;width:1080px;height:1350px;overflow:hidden;background:var(--ink);display:none}
+.piece.story{height:1920px}
+.piece.on{display:block}
+.piece::after{content:"";position:absolute;inset:0;z-index:20;pointer-events:none;opacity:.13;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.15) saturate(1.15)}
+.shade{position:absolute;inset:0}
+.pad{position:absolute;inset:64px}
+.mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.cond{font-weight:900;font-variation-settings:"wdth" 62;text-transform:uppercase;line-height:.82;letter-spacing:-.01em;margin:0}
+.acid{color:var(--acid)}
+.tag{display:inline-block;background:var(--acid);color:var(--ink);font:700 30px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:16px 20px}
+.tag.out{background:transparent;color:var(--acid);border:2px solid var(--acid)}
+.bar{position:absolute;left:64px;right:64px;display:flex;justify-content:space-between;font:500 22px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.bar.top{top:56px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.bar.bot{bottom:56px;padding-top:20px;border-top:1px solid var(--line)}
+.bar b{color:var(--acid);font-weight:500}
+.owl{width:110px;height:auto}
+.duo{position:absolute;background:var(--acid);overflow:hidden}
+.duo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.35) brightness(.95);mix-blend-mode:multiply}
+.cover{position:absolute;box-shadow:24px 24px 0 var(--acid)}
+.meta{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid rgba(236,235,230,.35)}
+.meta div{padding:22px 0;border-bottom:1px solid var(--line)}
+.meta dt{font:400 20px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+.meta dd{margin:0;font:500 30px var(--mono);text-transform:uppercase}
+.ticker{position:absolute;left:0;right:0;background:var(--acid);color:var(--ink);white-space:nowrap;padding:18px 0;font-weight:900;font-variation-settings:"wdth" 62;text-transform:uppercase;font-size:52px;line-height:1}
+.ticker span{margin-left:-40px}
+.sticker{position:absolute;left:50%;transform:translateX(-50%);border:3px dashed rgba(212,255,0,.75);color:rgba(212,255,0,.9);font:500 22px var(--mono);letter-spacing:.1em;text-transform:uppercase;display:grid;place-items:center;text-align:center}
+.clean .sticker{border-color:transparent;color:transparent}
+.swipe{font:700 26px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--acid)}
+</style>
+</head>
+<body>
+
+<!-- ============ CARRUSEL 4:5 ============ -->
+
+<!-- C1 · Portada -->
+<section class="piece" id="c1">
+  <img class="bg" src="../../assets/img/scene-green.webp" style="object-position:58% 30%">
+  <div class="shade" style="background:linear-gradient(180deg,rgba(5,5,5,.55) 0%,rgba(5,5,5,0) 22%,rgba(5,5,5,.1) 45%,rgba(5,5,5,.95) 100%)"></div>
+  <div class="bar top" style="color:var(--bone)"><span>Da Get Up</span><span><b>New release</b></span></div>
+  <div class="pad" style="top:auto;bottom:64px">
+    <span class="tag">Out now</span>
+    <h1 class="cond" style="font-size:296px;margin-top:22px">Skyfall</h1>
+    <div style="display:flex;justify-content:space-between;align-items:end;margin-top:26px">
+      <p class="mono" style="margin:0;font-size:26px;line-height:1.5">Da Get Up<br><span class="acid">Mikro Teck Records</span> · Hollywood, FL</p>
+      <span class="swipe">Desliza →</span>
+    </div>
+  </div>
+</section>
+
+<!-- C2 · Ficha del lanzamiento -->
+<section class="piece" id="c2">
+  <div class="bar top"><span><b>[02]</b> Release info</span><span>Out now</span></div>
+  <img class="cover" src="../../assets/img/skyfall-cover.webp" style="left:64px;top:150px;width:600px;height:600px">
+  <div style="position:absolute;right:64px;top:150px;width:300px;text-align:right">
+    <img class="owl" src="../../assets/img/owl.png" style="margin-left:auto">
+    <p class="mono" style="font-size:22px;color:var(--mute);margin:24px 0 0;line-height:1.6">Deep house<br>hipnótico,<br>hecho para<br>la pista.</p>
+  </div>
+  <div class="pad" style="top:auto;bottom:64px">
+    <h2 class="cond" style="font-size:170px;margin-bottom:30px">Skyfall</h2>
+    <dl class="meta" style="margin:0">
+      <div><dt>Label</dt><dd>Mikro Teck Records</dd></div>
+      <div><dt>Based in</dt><dd>Hollywood, FL · USA</dd></div>
+      <div><dt>Genre</dt><dd>Deep House</dd></div>
+      <div><dt>Release · Length</dt><dd>30.04.2026 · 6:34</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- C3 · Manifiesto -->
+<section class="piece" id="c3">
+  <div class="bar top"><span><b>[03]</b> Sound</span><span>Electronic World Music</span></div>
+  <div class="pad" style="top:270px">
+    <p class="cond" style="font-size:176px">Deep house</p>
+    <p class="cond" style="font-size:176px;color:transparent;-webkit-text-stroke:2.5px var(--bone)">hipnótico.</p>
+    <p class="cond acid" style="font-size:176px">Hecho para</p>
+    <p class="cond acid" style="font-size:176px">la pista.</p>
+  </div>
+  <div class="ticker" style="bottom:250px"><span>Deep House /// Techno-House /// Cumbia /// World Music /// Live Act ///</span></div>
+  <div class="bar bot"><span>6:34 de viaje profundo</span><span><b>Skyfall</b></span></div>
+</section>
+
+<!-- C4 · Live act -->
+<section class="piece" id="c4">
+  <div class="duo" style="inset:0 0 470px 0"><img src="../../assets/img/scene-red.webp" style="object-position:50% 45%"></div>
+  <div class="bar top" style="color:var(--ink);border-color:rgba(5,5,5,.3)"><span><b style="color:var(--ink)">[04]</b> Live act</span><span>Ableton · Synths</span></div>
+  <div class="pad" style="top:auto;bottom:64px">
+    <h2 class="cond" style="font-size:150px">Del estudio</h2>
+    <h2 class="cond acid" style="font-size:150px">al escenario.</h2>
+    <p style="font-size:32px;line-height:1.35;margin:26px 0 0;max-width:24ch;color:#dedcd5">Skyfall también suena en vivo: secuencias, sintetizadores y controladores tocados en tiempo real.</p>
+  </div>
+</section>
+
+<!-- C5 · CTA -->
+<section class="piece" id="c5">
+  <img class="bg" src="../../assets/img/scene-violet.webp" style="object-position:50% 40%;opacity:.55">
+  <div class="shade" style="background:linear-gradient(180deg,rgba(5,5,5,.9),rgba(5,5,5,.35) 45%,rgba(5,5,5,.95))"></div>
+  <div class="bar top" style="color:var(--bone)"><span><b>[05]</b> Listen + Booking</span><span>Da Get Up</span></div>
+  <div class="pad" style="top:200px">
+    <span class="tag">Escúchalo ya</span>
+    <h2 class="cond" style="font-size:200px;margin-top:26px">Skyfall</h2>
+    <p class="mono" style="font-size:30px;margin:18px 0 0;line-height:1.5">En Spotify · <span class="acid">link en bio</span></p>
+  </div>
+  <div class="pad" style="top:auto;bottom:64px">
+    <div style="border-top:2px solid var(--acid);padding-top:28px">
+      <p class="cond" style="font-size:96px">Medellín <span class="acid">Takeover</span></p>
+      <p class="mono" style="font-size:24px;color:var(--mute);margin:18px 0 0;line-height:1.6">Live act · DJ set · Showcase<br>Booking → <span style="color:var(--bone)">+57 312 576 6056</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HISTORIAS 9:16 ============ -->
+
+<!-- S1 · Out now + link a Spotify -->
+<section class="piece story" id="s1">
+  <img class="bg" src="../../assets/img/scene-green.webp" style="object-position:60% 30%">
+  <div class="shade" style="background:linear-gradient(180deg,rgba(5,5,5,.75) 0%,rgba(5,5,5,.1) 22%,rgba(5,5,5,.2) 50%,rgba(5,5,5,.97) 78%)"></div>
+  <div class="bar top" style="top:150px;color:var(--bone)"><span>Da Get Up</span><span><b>Out now</b></span></div>
+  <div class="pad" style="top:auto;bottom:250px">
+    <img class="cover" src="../../assets/img/skyfall-cover.webp" style="position:relative;width:360px;height:360px;box-shadow:16px 16px 0 var(--acid)">
+    <h1 class="cond" style="font-size:300px;margin-top:50px">Skyfall</h1>
+    <p class="mono" style="font-size:28px;margin:22px 0 0;line-height:1.5">Mikro Teck Records · <span class="acid">Hollywood, FL</span></p>
+  </div>
+  <div class="sticker" style="bottom:110px;width:520px;height:110px">Sticker de enlace · Spotify</div>
+</section>
+
+<!-- S2 · Teaser tipográfico -->
+<section class="piece story" id="s2">
+  <div class="duo" style="inset:0 0 900px 0"><img src="../../assets/img/scene-violet.webp" style="object-position:50% 45%"></div>
+  <div class="bar top" style="top:150px;color:var(--ink);border-color:rgba(5,5,5,.3)"><span><b style="color:var(--ink)">Skyfall</b></span><span>Deep house</span></div>
+  <div class="ticker" style="top:1000px"><span>Deep House /// Hipnótico /// Profundo /// Para la pista ///</span></div>
+  <div class="pad" style="top:1150px">
+    <p class="cond acid" style="font-size:270px">6:34</p>
+    <p class="cond" style="font-size:108px;margin-top:20px">de deep house</p>
+    <p class="cond" style="font-size:108px;color:transparent;-webkit-text-stroke:2px var(--bone)">hipnótico.</p>
+  </div>
+  <div class="sticker" style="bottom:110px;width:520px;height:110px">Sticker de música · Skyfall</div>
+</section>
+
+<!-- S3 · Booking Medellín -->
+<section class="piece story" id="s3">
+  <img class="bg" src="../../assets/img/scene-red.webp" style="object-position:12% 45%;opacity:.85">
+  <div class="shade" style="background:linear-gradient(180deg,rgba(5,5,5,.92) 0%,rgba(5,5,5,.2) 35%,rgba(5,5,5,.35) 55%,rgba(5,5,5,.97) 80%)"></div>
+  <div class="bar top" style="top:150px;color:var(--bone)"><span>Ruta MDE</span><span><b>Booking open</b></span></div>
+  <div class="pad" style="top:260px">
+    <p class="mono" style="font-size:30px;margin:0;line-height:1.5">¿Programas una noche<br>en Medellín?</p>
+  </div>
+  <div class="pad" style="top:auto;bottom:330px">
+    <h2 class="cond" style="font-size:250px">Da Get Up</h2>
+    <span class="tag" style="font-size:40px;margin-top:20px">Medellín Takeover</span>
+    <p class="mono" style="font-size:28px;color:#dedcd5;margin:34px 0 0;line-height:1.6">Live act · DJ set · Showcase<br>Clubes · colectivos · espacios culturales</p>
+  </div>
+  <div class="sticker" style="bottom:150px;width:620px;height:120px">Sticker de enlace · Landing booking</div>
+</section>
+
+<script>
+  var q = new URLSearchParams(location.search);
+  var el = document.getElementById(q.get('p') || 'c1');
+  el.classList.add('on');
+  if (q.has('clean')) document.body.classList.add('clean');
+</script>
+</body>
+</html>

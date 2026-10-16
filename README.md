@@ -28,3 +28,7 @@ Copia `index.html` y `assets/` a `public_html/dagetup/medellin/` y reemplaza `ht
 
 ## Dirección visual
 Flyer underground / Berlín: negro `#050505`, hueso `#ecebe6` y un único ácido `#d4ff00`. Archivo condensado (wdth 62) para titulares, JetBrains Mono para etiquetas. El color fuerte lo ponen las fotos reales del festival (verde, rojo, violeta) que rotan en el hero; el resto de fotos van en duotono ácido.
+
+## Kit IG (Skyfall)
+`ig/` — carrusel 4:5 (5 slides) + 3 historias 9:16, captions y guía de stickers en `ig/index.html` (noindex).
+Para editar: cambia `ig/src/piece.html` y vuelve a renderizar con `sh ig/src/render.sh` (Chrome headless).
