@@ -169,57 +169,38 @@ body{color:var(--bone);font-family:var(--cond);-webkit-font-smoothing:antialiase
 <style>
 .mt .dk{position:absolute;inset:0;background:var(--acid)}
 .mt .dk img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.45) brightness(.92);mix-blend-mode:multiply}
-.mt .sm{position:absolute;font:500 26px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase}
-.mt .ink{color:var(--ink)}
-.mt .big{font-weight:900;font-variation-settings:"wdth" 62;line-height:.8;letter-spacing:-.01em;margin:0}
+.mt .big{position:absolute;left:56px;right:56px;font-weight:900;font-variation-settings:"wdth" 62;text-transform:uppercase;line-height:.8;letter-spacing:-.01em;margin:0;white-space:nowrap}
+.mt .owl-ink{position:absolute;width:120px;filter:invert(1)}
 </style>
 
-<!-- 1 · Tú, duotono ácido -->
+<!-- 1 · Portada -->
 <section class="piece mt" id="m1">
-  <div class="dk"><img src="img/david-green.webp" style="object-position:50% 20%"></div>
-  <span class="sm ink" style="left:64px;top:60px">Da Get Up</span>
-  <span class="sm ink" style="right:64px;top:60px">01/03</span>
-  <span class="sm" style="left:64px;bottom:60px;background:var(--ink);color:var(--acid);padding:8px 14px">Medellín Takeover</span>
+  <div class="dk" style="bottom:470px"><img src="img/david-green.webp" style="object-position:50% 12%"></div>
+  <img class="owl-ink" src="../../assets/img/owl.png" style="left:60px;top:60px">
+  <p class="big" style="bottom:56px;font-size:270px;color:var(--acid)">Medellín<br>Takeover</p>
 </section>
 <section class="piece story mt" id="n1">
-  <div class="dk"><img src="img/david-green.webp" style="object-position:50% 20%"></div>
-  <span class="sm ink" style="left:64px;top:170px">Da Get Up</span>
-  <span class="sm ink" style="right:64px;top:170px">01/03</span>
-  <span class="sm" style="left:64px;bottom:300px;background:var(--ink);color:var(--acid);padding:8px 14px">Medellín Takeover</span>
+  <div class="dk" style="bottom:720px"><img src="img/david-green.webp" style="object-position:50% 12%"></div>
+  <img class="owl-ink" src="../../assets/img/owl.png" style="left:60px;top:170px">
+  <p class="big" style="bottom:300px;font-size:270px;color:var(--acid)">Medellín<br>Takeover</p>
 </section>
 
 <!-- 2 · La fecha -->
 <section class="piece mt" id="m2">
-  <span class="sm" style="left:64px;top:60px;color:var(--mute)">Medellín Takeover</span>
-  <span class="sm" style="right:64px;top:60px;color:var(--mute)">02/03</span>
-  <p class="big acid" style="position:absolute;left:58px;top:430px;font-size:300px">16—28.11</p>
-  <span class="sm" style="left:64px;top:700px;color:var(--bone)">Noviembre 2026 · Medellín, CO</span>
+  <p class="big acid" style="top:470px;font-size:300px">16—28.11</p>
 </section>
 <section class="piece story mt" id="n2">
-  <span class="sm" style="left:64px;top:170px;color:var(--mute)">Medellín Takeover</span>
-  <span class="sm" style="right:64px;top:170px;color:var(--mute)">02/03</span>
-  <p class="big acid" style="position:absolute;left:58px;top:760px;font-size:300px">16—28.11</p>
-  <span class="sm" style="left:64px;top:1030px;color:var(--bone)">Noviembre 2026 · Medellín, CO</span>
+  <p class="big acid" style="top:790px;font-size:300px">16—28.11</p>
 </section>
 
-<!-- 3 · Formatos + booking -->
+<!-- 3 · Booking -->
 <section class="piece mt" id="m3">
-  <div class="dk" style="bottom:470px"><img src="img/david-fog.webp" style="object-position:50% 40%"></div>
-  <span class="sm ink" style="right:64px;top:60px">03/03</span>
-  <div style="position:absolute;left:64px;right:64px;bottom:60px">
-    <p class="sm" style="position:static;margin:0;color:var(--bone)">Live act · DJ set · Showcase</p>
-    <p class="sm" style="position:static;margin:6px 0 0;color:var(--mute)">Venues por anunciar</p>
-    <p class="sm" style="position:static;margin:44px 0 0;color:var(--acid)">Booking → link en bio</p>
-  </div>
+  <div class="dk" style="bottom:400px"><img src="img/david-fog.webp" style="object-position:50% 30%"></div>
+  <p class="big" style="bottom:56px;font-size:200px;color:var(--acid)">Booking<br>abierto</p>
 </section>
 <section class="piece story mt" id="n3">
-  <div class="dk" style="bottom:760px"><img src="img/david-fog.webp" style="object-position:50% 40%"></div>
-  <span class="sm ink" style="right:64px;top:170px">03/03</span>
-  <div style="position:absolute;left:64px;right:64px;bottom:420px">
-    <p class="sm" style="position:static;margin:0;color:var(--bone)">Live act · DJ set · Showcase</p>
-    <p class="sm" style="position:static;margin:6px 0 0;color:var(--mute)">Venues por anunciar</p>
-    <p class="sm" style="position:static;margin:44px 0 0;color:var(--acid)">Booking → link abajo</p>
-  </div>
+  <div class="dk" style="bottom:660px"><img src="img/david-fog.webp" style="object-position:50% 30%"></div>
+  <p class="big" style="bottom:400px;font-size:200px;color:var(--acid)">Booking<br>abierto</p>
 </section>
 
 <script>
