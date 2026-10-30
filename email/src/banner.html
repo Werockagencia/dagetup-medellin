@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Banner correo · Medellín Takeover</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Banner 1200x750 para correos de booking (se muestra a 600 px). Render: sh email/src/render.sh */
+:root{--ink:#050505;--bone:#ecebe6;--acid:#d4ff00;--mute:#b9b8b2}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1200px;height:750px;overflow:hidden;background:var(--ink)}
+.b{position:relative;width:1200px;height:750px;overflow:hidden;font-family:"Archivo",Impact,sans-serif;color:var(--bone)}
+.ph{position:absolute;inset:0 0 0 420px;background:url(../../assets/img/scene-green.webp) 0% 14%/cover no-repeat}
+.fade{position:absolute;inset:0;background:linear-gradient(90deg,#050505 0%,#050505 36%,rgba(5,5,5,.7) 48%,rgba(5,5,5,0) 62%),linear-gradient(0deg,rgba(5,5,5,.7) 0%,rgba(5,5,5,0) 28%)}
+.txt{position:absolute;left:64px;top:56px;bottom:56px;width:640px;display:flex;flex-direction:column}
+.tag{align-self:flex-start;background:var(--acid);color:var(--ink);font:700 22px/1 "JetBrains Mono",monospace;letter-spacing:.08em;padding:12px 16px;text-transform:uppercase}
+h1{margin-top:30px;font-stretch:62%;font-weight:900;font-size:168px;line-height:.82;letter-spacing:-.01em;text-transform:uppercase}
+.when{margin-top:18px;font-stretch:62%;font-weight:900;font-size:104px;line-height:.9;color:var(--acid);text-transform:uppercase}
+.what{margin-top:20px;font:500 23px/1.35 "JetBrains Mono",monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--bone)}
+.proof{margin-top:auto;display:flex;gap:26px;font:500 18px/1.3 "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.proof b{color:var(--bone);font-weight:700;display:block}
+.cta{position:absolute;right:56px;bottom:56px;background:var(--acid);color:var(--ink);font-stretch:85%;font-weight:900;font-size:40px;line-height:1;padding:20px 28px;text-transform:uppercase}
+.url{position:absolute;right:58px;top:60px;font:500 18px/1 "JetBrains Mono",monospace;letter-spacing:.06em;color:var(--bone);background:rgba(5,5,5,.55);padding:9px 12px}
+</style>
+</head>
+<body>
+<div class="b">
+  <div class="ph"></div><div class="fade"></div>
+  <div class="txt">
+    <span class="tag">Gira · Medellín Takeover</span>
+    <h1>Da Get Up</h1>
+    <div class="when">15–28 nov</div>
+    <p class="what">14 noches · House con raíces latinas<br>DJ set · Live act</p>
+    <div class="proof">
+      <span><b>EU Tour</b>IE · BE · FR · ES</span>
+      <span><b>Out now · Skyfall</b>Mikro Teck Records</span>
+    </div>
+  </div>
+  <span class="url">werock.space/dagetup/medellin</span>
+  <span class="cta">Escoge tu noche →</span>
+</div>
+</body>
+</html>
