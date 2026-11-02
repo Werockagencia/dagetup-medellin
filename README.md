@@ -1,4 +1,4 @@
-# Da Get Up — Medellín Takeover
+﻿# Da Get Up — Medellín Takeover
 
 Landing de booking para la ruta de Da Get Up (David Higuera) en Medellín. HTML/CSS/JS estático, sin dependencias.
 
@@ -20,7 +20,7 @@ Mientras estén vacíos no se carga ningún script externo. Los eventos se enví
 
 ## Mantenimiento
 - WhatsApp y mensajes predefinidos: constantes `WA` y `MSG` al final de `index.html`.
-- El `.status` del hero dice "Medellín · 15–28 nov 2026 · Agenda abierta". Cuando haya fechas confirmadas, se cambia por la agenda. Nunca publicar "sin fechas confirmadas": le resta fuerza a la gira.
+- El `.status` del hero dice "Medellín · 13–26 nov 2026 · Agenda abierta". Cuando haya fechas confirmadas, se cambia por la agenda. Nunca publicar "sin fechas confirmadas": le resta fuerza a la gira.
 - Skyfall: publicado el 30.04.2026 en Mikro Teck Records (verificado en Spotify, track 4a0j4x50akKLUR9qXoDyPn).
 
 ## Migrar a werock.space/dagetup/medellin/
