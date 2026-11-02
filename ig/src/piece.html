@@ -5,7 +5,7 @@
 <!-- Plantilla de piezas IG — se renderiza con Chrome headless: piece.html?p=c1 … (ver render.sh) -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500;700&display=block">
 <style>
-:root{--ink:#050505;--bone:#ecebe6;--mute:#a3a29b;--dim:#64635e;--line:rgba(236,235,230,.18);--acid:#d4ff00;
+:root{--ink:#0b0b0c;--bone:#ede6da;--mute:#a3a29b;--dim:#64635e;--line:rgba(236,235,230,.18);--acid:#d4ff00;
   --cond:"Archivo",sans-serif;--mono:"JetBrains Mono",monospace}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--ink)}
@@ -220,7 +220,7 @@ body{color:var(--bone);font-family:var(--cond);-webkit-font-smoothing:antialiase
   <img class="owl-ink" src="img/buho-negro.svg" style="right:56px;top:56px;width:150px">
   
   <p class="big wide" style="bottom:150px;font-size:150px;line-height:.9"><span class="outline">Quién es</span><br><span style="color:var(--bone)">Da Get Up</span></p>
-  <div class="bar bot" style="border:0"><span>Live act · Voz · Synths · Ableton</span><span class="swipe">Desliza →</span></div>
+  <div class="bar bot" style="border:0;justify-content:flex-end"><span class="swipe">Desliza →</span></div>
 </section>
 
 <!-- Q2 · El live act -->
@@ -228,19 +228,18 @@ body{color:var(--bone);font-family:var(--cond);-webkit-font-smoothing:antialiase
   <img class="bg" src="img/live-teclado-2.jpg" style="object-position:50% 40%">
   <div class="shade" style="background:linear-gradient(180deg,rgba(5,5,5,.75) 0%,rgba(5,5,5,0) 25%,rgba(5,5,5,.15) 45%,rgba(5,5,5,.96) 78%)"></div>
   <div class="uv"></div>
-  <div class="bar top" style="color:var(--bone)"><span><b>[02]</b> Lo que hago</span><span>DJ set · Live act</span></div>
+  <div class="bar top" style="color:var(--bone)"><span><b>[02]</b></span><span>DJ set · Live act</span></div>
   <div class="pad" style="top:auto;bottom:64px">
     <h2 class="cond" style="font-size:150px">Mezclo.</h2>
     <h2 class="cond outline" style="font-size:150px">Toco.</h2>
     <h2 class="cond acid" style="font-size:150px">Canto.</h2>
-    <p style="font-size:32px;line-height:1.35;margin:26px 0 0;max-width:30ch;color:#dedcd5">DJ set para la pista. Live act con voz, sintes y canciones propias para el escenario. Las dos son Da&nbsp;Get&nbsp;Up.</p>
   </div>
 </section>
 
 <!-- Q3 · Trayectoria -->
 <section class="piece" id="q3">
   <div class="uv" style="background:radial-gradient(60% 45% at 0% 100%,rgba(123,44,255,.3),transparent 70%)"></div>
-  <div class="bar top"><span><b>[03]</b> Trayectoria</span><span>Gira Europa 2022</span></div>
+  <div class="bar top"><span><b>[03]</b></span><span>Europa 2022</span></div>
   <div class="pad" style="top:230px">
     <div class="country"><b>IE</b><span>Irlanda · cierre del Mundial<br>de Ultimate Masters</span></div>
     <div class="country"><b>BE</b><span>Bélgica</span></div>
@@ -252,7 +251,7 @@ body{color:var(--bone);font-family:var(--cond);-webkit-font-smoothing:antialiase
 
 <!-- Q4 · Skyfall -->
 <section class="piece" id="q4">
-  <div class="bar top"><span><b>[04]</b> Lanzamiento</span><span>Sello internacional</span></div>
+  <div class="bar top"><span><b>[04]</b></span><span>Out now</span></div>
   <img class="cover" src="../../assets/img/skyfall-cover.webp" style="left:64px;top:150px;width:680px;height:680px">
   <div style="position:absolute;right:64px;top:150px;width:330px;text-align:right">
     <p class="cc" style="margin:0">Deep house<br>6:34<br>30.04.2026</p>
@@ -266,11 +265,11 @@ body{color:var(--bone);font-family:var(--cond);-webkit-font-smoothing:antialiase
 <!-- Q5 · El Andar + booking -->
 <section class="piece mt" id="q5">
   <div class="dk" style="bottom:640px"><img src="img/fest-verde.jpg" style="object-position:28% 35%;filter:grayscale(1) contrast(1.45) brightness(1.9)"></div>
-  <div class="bar top" style="color:var(--ink);border:0;justify-content:flex-end"><span>[05] Álbum + live act</span></div>
-  <div class="ticker" style="top:710px;font-size:46px"><span>Bajo la superficie /// El Andar /// Caer · Buscar · Soltar · Encontrarse ///</span></div>
+  
+  <div class="ticker" style="top:710px;font-size:46px"><span>Caer /// Buscar /// Soltar /// Recordar /// Caminar /// Encontrarse ///</span></div>
   <div class="pad" style="top:auto;bottom:64px">
     <p class="cond acid" style="font-size:230px">El Andar</p>
-    <p class="mono" style="font-size:26px;margin:22px 0 0;line-height:1.6">Un viaje hacia uno mismo · próximamente<br><span style="color:var(--mute)">Booking → werock.space/dagetup</span></p>
+    <p class="mono" style="font-size:26px;margin:22px 0 0;color:var(--mute)">Próximamente</p>
   </div>
 </section>
 
@@ -284,28 +283,41 @@ body{color:var(--bone);font-family:var(--cond);-webkit-font-smoothing:antialiase
   </div>
   <div style="position:absolute;left:64px;right:64px;bottom:150px;border-top:2px solid var(--acid)"></div>
   <img src="img/wordmark-puntos.png" style="position:absolute;left:64px;bottom:58px;height:46px">
-  <p class="mono" style="position:absolute;right:64px;bottom:64px;margin:0;font-size:22px;color:var(--mute)">Live act · Voz · Synths</p>
+  
 </section>
 
 <!-- K1 · Cierre del reel de Skyfall (9:16), reemplaza la tarjeta "Muy pronto" -->
 <section class="piece story" id="k1">
   <div class="uv"></div>
-  <img src="img/buho-blanco.svg" style="position:absolute;left:50%;top:620px;transform:translateX(-50%);width:300px">
-  <div style="position:absolute;left:64px;right:64px;top:820px;text-align:center">
-    <p class="cond" style="font-size:250px">Skyfall</p>
-    <span class="tag" style="font-size:44px;margin-top:34px">Out now</span>
-    <p class="mono" style="font-size:28px;margin:40px 0 0;color:var(--mute);line-height:1.6">Mikro Teck Records<br><span class="acid">Spotify · link en bio</span></p>
+  <img src="img/buho-blanco.svg" style="position:absolute;left:50%;top:640px;transform:translateX(-50%);width:200px">
+  <div style="position:absolute;left:64px;right:64px;top:800px;text-align:center">
+    <p class="cond" style="font-size:260px">Skyfall</p>
+    <span class="tag" style="font-size:40px;margin-top:40px">Out now</span>
+    <p class="mono" style="font-size:24px;margin:44px 0 0;color:var(--mute)">Mikro Teck Records</p>
   </div>
 </section>
+<!-- ============ PERFIL · avatar 1080×1080 y portadas de destacadas 1080×1920 ============ -->
+<style>
+.piece.story.hl.on{display:grid;place-items:center}
+.hl .ring{width:640px;height:640px;border-radius:50%;display:grid;place-items:center;border:2px solid rgba(212,255,0,.35);position:relative}
+.hl .ring b{font-weight:900;font-variation-settings:"wdth" 62;text-transform:uppercase;font-size:170px;line-height:.9;color:var(--acid);letter-spacing:-.01em}
+</style>
+<section class="piece" id="av" style="height:1080px">
+  <div class="uv" style="background:radial-gradient(60% 60% at 50% 50%,rgba(123,44,255,.22),transparent 70%)"></div>
+  <img src="img/buho-blanco.svg" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:720px">
+</section>
+<section class="piece story hl" id="h1"><div class="uv"></div><div class="ring"><b>MDE</b></div></section>
+<section class="piece story hl" id="h2"><div class="uv"></div><div class="ring"><b>Live</b></div></section>
+<section class="piece story hl" id="h3"><div class="uv"></div><div class="ring"><b style="font-size:130px">Música</b></div></section>
+<section class="piece story hl" id="h4"><div class="uv"></div><div class="ring"><img src="img/buho-blanco.svg" style="width:380px"></div></section>
+
 <!-- O1 · Fondo del reel vertical de Owl Frequencies (el video 16:9 va en y=656, alto 608) -->
 <section class="piece story" id="o1">
-  <div class="uv"></div>
-  <div class="bar top" style="top:150px;color:var(--bone)"><span><b>[Video oficial]</b></span><span>Da Get Up</span></div>
-  <img src="img/buho-blanco.svg" style="position:absolute;left:64px;top:260px;width:180px">
-  <p class="cond" style="position:absolute;left:64px;right:64px;top:350px;font-size:140px;font-variation-settings:'wdth' 62">Owl <span class="acid">Frequencies</span></p>
+  <div class="uv" style="background:radial-gradient(70% 35% at 50% 0%,rgba(123,44,255,.28),transparent 70%)"></div>
+  <img src="img/buho-blanco.svg" style="position:absolute;left:50%;top:430px;transform:translateX(-50%);width:150px">
   <div style="position:absolute;left:0;right:0;top:656px;height:608px;background:#111"></div>
-  <p class="mono" style="position:absolute;left:64px;right:64px;top:1320px;font-size:30px;line-height:1.6;margin:0">Bogotá de noche · skate · house<br><span style="color:var(--mute)">Bajo la superficie</span></p>
-  <div class="ticker" style="top:1520px;font-size:46px"><span>Video completo en YouTube /// Link en bio /// Owl Frequencies /// Da Get Up ///</span></div>
+  <p class="cond" style="position:absolute;left:0;right:0;top:1340px;text-align:center;font-size:132px">Owl <span class="acid">Frequencies</span></p>
+  <p class="mono" style="position:absolute;left:0;right:0;top:1500px;text-align:center;font-size:24px;color:var(--mute);margin:0">Video oficial</p>
 </section>
 
 <script>
