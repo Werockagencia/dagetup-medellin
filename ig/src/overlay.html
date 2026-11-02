@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<!-- Capas transparentes 1080×1920 para los reels. Render: Chrome headless con --default-background-color=00000000 · overlay.html?p=a1 -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@500&display=block">
+<style>
+:root{--bone:#ede6da;--acid:#d4ff00;--mute:#a8a49c}
+html,body{margin:0;background:transparent}
+.o{position:relative;width:1080px;height:1920px;display:none;overflow:hidden}
+.o.on{display:block}
+.t{position:absolute;left:0;right:0;text-align:center;margin:0;font-family:Archivo,sans-serif;font-weight:900;font-variation-settings:"wdth" 62;text-transform:uppercase;line-height:.84;letter-spacing:-.01em;text-shadow:0 6px 40px rgba(0,0,0,.55)}
+.outline{color:transparent;-webkit-text-stroke:3px var(--bone)}
+.m{position:absolute;left:0;right:0;text-align:center;margin:0;font:500 28px "JetBrains Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--bone);text-shadow:0 2px 16px rgba(0,0,0,.7)}
+.owl{position:absolute;left:50%;transform:translateX(-50%);filter:drop-shadow(0 4px 24px rgba(0,0,0,.6))}
+.scrim{position:absolute;left:0;right:0;height:900px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55) 45%,rgba(0,0,0,.55) 55%,transparent)}
+</style>
+</head>
+<body>
+<!-- Reel 01 · Tarjeta de entrada sobria: búho + Da Get Up + Live session -->
+<div class="o" id="ls"><div class="scrim" style="top:560px"></div><img class="owl" src="img/buho-blanco.svg" style="top:700px;width:150px"><p class="t" style="top:830px;font-size:200px;color:var(--bone)">Da Get Up</p><p class="m" style="top:1020px">Live session · We Rock Studio</p></div>
+<!-- Cierre de reels: búho -->
+<div class="o" id="end"><div style="position:absolute;inset:0;background:rgba(11,11,12,.82)"></div><img class="owl" src="img/buho-blanco.svg" style="top:860px;width:300px"></div>
+<!-- Reel 08 · Medellín -->
+<div class="o" id="mde"><div class="scrim" style="top:560px"></div><img class="owl" src="img/buho-blanco.svg" style="top:640px;width:170px"><p class="t" style="top:780px;font-size:230px;color:var(--bone)">Medellín</p><p class="t" style="top:985px;font-size:190px;color:var(--acid);font-variation-settings:'wdth' 100">13—26.11</p><p class="m" style="top:1200px">Booking abierto</p></div>
+<script>
+var q=new URLSearchParams(location.search);document.getElementById(q.get('p')||'a1').classList.add('on');
+</script>
+</body>
+</html>
