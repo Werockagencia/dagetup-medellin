@@ -97,10 +97,10 @@
 <style>
 /* Dirección: flyer underground — negro, hueso y un solo color ácido. Las fotos de escena aportan el color. */
 :root{
-  --ink:#050505; --ink-2:#0d0d0c; --ink-3:#161615;
-  --bone:#ecebe6; --mute:#a3a29b; --dim:#64635e;
-  --line:rgba(236,235,230,.14); --line-2:rgba(236,235,230,.3);
-  --acid:#d4ff00; --on-acid:#050505;
+  --ink:#0b0b0c; --ink-2:#111113; --ink-3:#18181b;
+  --bone:#ede6da; --mute:#a39e95; --dim:#6b675f;
+  --line:rgba(237,230,218,.14); --line-2:rgba(237,230,218,.3);
+  --acid:#d4ff00; --on-acid:#0b0b0c; --uv:#7b2cff; --uv-night:#1a0b33;
   --cond:"Archivo", "Arial Narrow", sans-serif;
   --mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
   --gutter:clamp(16px, 4vw, 56px);
@@ -194,6 +194,28 @@ section{position:relative}
 .ticker span{font-weight:900;font-variation-settings:"wdth" 62;text-transform:uppercase;font-size:clamp(24px,3vw,40px);line-height:1;letter-spacing:.01em}
 .ticker span:nth-child(even){font-family:var(--mono);font-weight:700;font-size:clamp(14px,1.4vw,18px);align-self:center}
 @keyframes tick{to{transform:translateX(-100%)}}
+
+/* La ruta — 14 noches */
+.ruta{background:radial-gradient(60% 80% at 100% 0%,rgba(123,44,255,.22),transparent 70%),radial-gradient(rgba(237,230,218,.06) 1px,transparent 1.3px) 0 0/18px 18px,var(--ink)}
+.ruta-head{display:grid;gap:20px;align-items:end;margin-bottom:36px}
+@media (min-width:900px){.ruta-head{grid-template-columns:1fr auto}}
+.ruta-legend{display:flex;gap:18px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.ruta-legend i{display:inline-block;width:10px;height:10px;margin-right:8px;vertical-align:-1px;border:1px solid var(--acid)}
+.ruta-legend .w i{background:var(--acid)}
+.cal{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line-2);border-left:1px solid var(--line-2)}
+@media (min-width:640px){.cal{grid-template-columns:repeat(4,1fr)}}
+@media (min-width:1040px){.cal{grid-template-columns:repeat(7,1fr)}}
+.night{position:relative;display:flex;flex-direction:column;gap:4px;min-height:150px;padding:14px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);text-decoration:none;transition:background .2s,color .2s}
+.night .d{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.night strong{font-weight:900;font-variation-settings:"wdth" 62;font-size:clamp(52px,5vw,76px);line-height:.85;margin-top:auto}
+.night .s{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--acid)}
+.night .s::before{content:"● ";font-size:8px;vertical-align:1px}
+.night.w{background:rgba(212,255,0,.07)}
+.night.w .d{color:var(--acid)}
+.night:hover,.night:focus-visible{background:var(--acid);color:var(--on-acid)}
+.night:hover .d,.night:hover .s,.night:focus-visible .d,.night:focus-visible .s{color:var(--on-acid)}
+.night .go{position:absolute;top:12px;right:14px;opacity:0;transition:opacity .2s}
+.night:hover .go,.night:focus-visible .go{opacity:1}
 
 /* Skyfall */
 .rel-grid{display:grid;gap:44px;align-items:center}
@@ -388,10 +410,10 @@ footer a{color:var(--mute)}
 <header class="top" id="top">
   <div class="wrap">
     <a class="brand" href="#inicio" aria-label="Da Get Up — inicio">
-      <img src="assets/img/owl.png" width="400" height="144" alt="">
-      <span>Da Get Up</span>
+      <img src="assets/img/logo-hueso.svg" width="120" height="58" alt="Da Get Up" style="width:96px">
     </a>
     <nav class="nav" aria-label="Secciones">
+      <a href="#ruta">Fechas</a>
       <a href="#live">Live act</a>
       <a href="#skyfall">Skyfall</a>
       <a href="#formatos">Formatos</a>
@@ -424,17 +446,17 @@ footer a{color:var(--mute)}
   <div class="wrap hero-inner">
     <div class="flyer-top">
       <a class="new" href="#skyfall" data-track="skyfall_click" data-loc="hero">Out now <span>Skyfall · Mikro Teck Records ↓</span></a>
-      <p class="status" style="margin:0"><i aria-hidden="true"></i> Medellín · 13–26 nov 2026 · Agenda abierta</p>
+      <p class="status" style="margin:0"><i aria-hidden="true"></i> Medellín · 13–26 nov 2026 · Booking abierto</p>
     </div>
     <h1 id="hero-title">
       <span class="a">Da Get Up</span>
       <span class="b">MEDELLÍN TAKEOVER</span>
     </h1>
     <div class="hero-row">
-      <p class="txt">Del 13 al 26 de noviembre, Da Get Up se toma Medellín: 14 noches de electrónica con voz en clubes, bares, rooftops y espacios culturales. Estamos eligiendo las paradas de la ruta.</p>
+      <p class="txt">Del 13 al 26 de noviembre. Live act y DJ sets en clubes, salas y espacios culturales de Medellín.</p>
       <div class="btns">
-        <a class="btn btn--acid" href="#" data-wa="general" data-track="whatsapp_click" data-loc="hero">
-          Proponer una fecha
+        <a class="btn btn--acid" href="#ruta" data-track="ruta_click" data-loc="hero">
+          Ver fechas
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a class="btn" href="#live" data-track="live_act_click" data-loc="hero">Ver live act ▶</a>
@@ -466,6 +488,19 @@ footer a{color:var(--mute)}
   </div>
 </div>
 
+<!-- LA RUTA -->
+<section class="sec ruta" id="ruta" aria-labelledby="ruta-title">
+  <div class="wrap">
+    <div class="kick"><span><b>[00]</b> Dates / La ruta</span><span>13—26.11.2026</span></div>
+    <div class="ruta-head">
+      <h2 class="h2 rv" id="ruta-title" style="margin:0">14 noches.<br><em>Medellín.</em></h2>
+      <div class="ruta-legend rv"><span class="w"><i></i>Fin de semana</span><span><i></i>Entre semana</span></div>
+    </div>
+    <div class="cal rv" id="cal"></div>
+    <p class="note rv">Selecciona una noche para consultar disponibilidad por WhatsApp.</p>
+  </div>
+</section>
+
 <!-- B. PRESENTACIÓN -->
 <section class="sec" id="artista" aria-labelledby="artista-title">
   <div class="wrap">
@@ -493,9 +528,9 @@ footer a{color:var(--mute)}
       <div><dt>Base</dt><dd>Cajicá / Bogotá, Colombia</dd></div>
     </dl>
     <div class="why">
-      <article class="rv"><span class="n">01 / Live</span><h3>Un show en vivo, no una playlist</h3><p>Secuencias en Ableton, sintetizadores, controladores y guitarra o bajo en escena.</p></article>
-      <article class="rv"><span class="n">02 / Sound</span><h3>Un sonido que se distingue</h3><p>Canciones propias con voz en vivo sobre house: una propuesta distinta dentro de un cartel de DJs.</p></article>
-      <article class="rv"><span class="n">03 / Intl</span><h3>Recorrido fuera de Colombia</h3><p>Gira europea en 2022 y lanzamiento con un sello de Hollywood, Florida.</p></article>
+      <article class="rv"><span class="n">01 / Live</span><h3>Interpretación en vivo</h3><p>Ableton, sintetizadores, controladores y voz en escena.</p></article>
+      <article class="rv"><span class="n">02 / Sound</span><h3>Repertorio propio</h3><p>Canciones con voz y letras en español sobre house e indie electrónico.</p></article>
+      <article class="rv"><span class="n">03 / Intl</span><h3>Trayectoria internacional</h3><p>Gira europea 2022. Skyfall, publicado por Mikro Teck Records (EE. UU.).</p></article>
       <article class="rv"><span class="n">04 / Rider</span><h3>Producción sencilla</h3><p>Llega con su equipo. Pide micrófono, monitores, una mesa estable y corriente segura.</p></article>
     </div>
   </div>
@@ -505,8 +540,8 @@ footer a{color:var(--mute)}
 <section class="sec" id="live" aria-labelledby="live-title">
   <div class="wrap">
     <div class="kick"><span><b>[02]</b> Live act / En vivo</span><span>Ableton · Synths · Hardware</span></div>
-    <h2 class="h2 rv" id="live-title">Más allá del <em>DJ set.</em></h2>
-    <p class="lead rv">No es una lista de canciones en reproducción: es un set construido en vivo, con secuencias, sintetizadores y controladores en escena.</p>
+    <h2 class="h2 rv" id="live-title">Live <em>act.</em></h2>
+    <p class="lead rv">Repertorio propio interpretado en tiempo real: voz, sintetizadores y Ableton Live.</p>
 
     <div class="videos" style="margin-top:44px">
       <div class="yt rv" data-yt="KuznMMQGNZI" data-title="Owl Frequencies">
@@ -579,7 +614,7 @@ footer a{color:var(--mute)}
         <iframe class="sp-track" title="Skyfall de Da Get Up en Spotify" src="https://open.spotify.com/embed/track/4a0j4x50akKLUR9qXoDyPn?utm_source=generator&amp;theme=0" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
         <div class="btns">
           <a class="btn btn--acid" href="https://open.spotify.com/track/4a0j4x50akKLUR9qXoDyPn" target="_blank" rel="noopener" data-track="outbound_click" data-loc="skyfall_spotify">Escuchar en Spotify ↗</a>
-          <a class="btn" href="#" data-wa="general" data-track="whatsapp_click" data-loc="skyfall">Llevarlo a tu cartel</a>
+          <a class="btn" href="#" data-wa="general" data-track="whatsapp_click" data-loc="skyfall">Booking</a>
         </div>
       </div>
     </div>
@@ -590,10 +625,10 @@ footer a{color:var(--mute)}
 <section class="sec" id="formatos" aria-labelledby="formatos-title">
   <div class="wrap">
     <div class="kick"><span><b>[04]</b> Booking formats / Formatos</span><span>3 opciones</span></div>
-    <h2 class="h2 rv" id="formatos-title">Tres formas de <em>traerlo.</em></h2>
+    <h2 class="h2 rv" id="formatos-title">Formatos de <em>booking.</em></h2>
     <div class="formats rv">
       <article class="fmt fmt--hot">
-        <span class="flag">Recomendado</span>
+        <span class="flag">Formato insignia</span>
         <span class="n">F/01</span>
         <h3>Live Act</h3>
         <p class="kind">Interpretación en vivo</p>
@@ -621,9 +656,9 @@ footer a{color:var(--mute)}
     <p class="note rv">Tarifas, disponibilidad y duración se acuerdan directamente por booking según la fecha y el espacio.</p>
 
     <ol class="steps" aria-label="Cómo cerramos una fecha">
-      <li class="rv"><div><h3>Nos escribes</h3><p>Cuéntanos el espacio, la fecha tentativa y el formato que te interesa.</p></div></li>
-      <li class="rv"><div><h3>Revisamos condiciones</h3><p>Rider, horario, duración y condiciones de booking, sin vueltas.</p></div></li>
-      <li class="rv"><div><h3>Confirmamos la noche</h3><p>Cerramos el acuerdo y preparamos juntos la fecha.</p></div></li>
+      <li class="rv"><div><h3>Solicitud</h3><p>Espacio, fecha y formato.</p></div></li>
+      <li class="rv"><div><h3>Condiciones</h3><p>Rider, horario, duración y tarifa.</p></div></li>
+      <li class="rv"><div><h3>Confirmación</h3><p>Acuerdo firmado y fecha anunciada.</p></div></li>
     </ol>
   </div>
 </section>
@@ -632,7 +667,7 @@ footer a{color:var(--mute)}
 <section class="sec" id="musica" aria-labelledby="musica-title">
   <div class="wrap">
     <div class="kick"><span><b>[05]</b> Listen / Música</span><span>Spotify · SoundCloud</span></div>
-    <h2 class="h2 rv" id="musica-title">Escúchalo <em>antes de programarlo.</em></h2>
+    <h2 class="h2 rv" id="musica-title">Mú<em>sica.</em></h2>
     <div class="players">
       <div class="player rv">
         <h3>Spotify · tracks &amp; releases <a href="https://open.spotify.com/artist/7gkUOkyEnO0pQkqCvGLhKq" target="_blank" rel="noopener" data-track="outbound_click" data-loc="spotify">Abrir ↗</a></h3>
@@ -702,8 +737,8 @@ footer a{color:var(--mute)}
   <picture><img src="assets/img/scene-red.webp" width="1800" height="1200" loading="lazy" alt=""></picture>
   <div class="wrap">
     <div class="kick"><span><b>[08]</b> Medellín</span><span>06°15′N 75°34′W</span></div>
-    <h2 class="h2 rv" id="final-title">¿Construimos una fecha en <em>Medellín?</em></h2>
-    <p class="lead rv">Del 13 al 26 de noviembre, la ruta pasa por clubes, bares, rooftops y espacios culturales de Medellín. Quedan noches por asignar: escoge la tuya.</p>
+    <h2 class="h2 rv" id="final-title">Medellín <em>13—26.11</em></h2>
+    <p class="lead rv">Clubes, salas y espacios culturales. Booking abierto.</p>
     <div class="btns rv" style="margin-top:30px">
       <a class="btn btn--acid" href="#" data-wa="general" data-track="whatsapp_click" data-loc="cta_final">Hablar sobre booking →</a>
       <a class="btn" href="#rider" data-track="rider_click" data-loc="cta_final">Consultar el rider</a>
@@ -717,7 +752,7 @@ footer a{color:var(--mute)}
   <div class="wrap">
     <div class="kick"><span><b>[09]</b> Booking &amp; management</span><span>Contacto directo</span></div>
     <h2 class="h2 rv" id="contacto-title">Contacto <em>directo.</em></h2>
-    <p class="muted rv">David Higuera · artista. Respuesta directa, sin intermediarios.</p>
+    <p class="muted rv">Booking y management · We Rock Agencia.</p>
     <div class="contact-grid rv">
       <a class="cc cc--main" href="#" data-wa="general" data-track="whatsapp_click" data-loc="contacto">
         <span class="mono">WhatsApp · vía más rápida</span><strong>+57 312 576 6056</strong><em>Escribir con mensaje listo →</em>
@@ -765,8 +800,28 @@ footer a{color:var(--mute)}
     dj: 'Hola, conocí Da Get Up y me interesa un DJ Set para una posible fecha en Medellín. ¿Podemos revisar disponibilidad y condiciones de booking?',
     showcase: 'Hola, conocí Da Get Up y quisiera proponer un showcase o colaboración en Medellín. ¿Podemos conversar sobre formatos y condiciones?'
   };
+  // --- La ruta: 14 noches del 13 al 26 de noviembre de 2026; cada una abre WhatsApp con la fecha.
+  var cal = document.getElementById('cal');
+  if (cal) {
+    var DAYS = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+    for (var n = 13; n <= 26; n++) {
+      var wd = new Date(2026, 10, n).getDay(), we = wd === 5 || wd === 6;
+      var a = document.createElement('a');
+      a.className = 'night' + (we ? ' w' : '');
+      a.href = '#';
+      a.dataset.wa = 'fecha';
+      a.dataset.date = DAYS[wd].toLowerCase() + ' ' + n + ' de noviembre';
+      a.dataset.track = 'date_click'; a.dataset.loc = 'ruta_' + n;
+      a.setAttribute('aria-label', 'Consultar ' + a.dataset.date);
+      a.innerHTML = '<span class="d">' + DAYS[wd] + ' · Nov</span><span class="go" aria-hidden="true">↗</span><strong>' + n + '</strong><span class="s">' + 'Disponible' + '</span>';
+      cal.appendChild(a);
+    }
+  }
   document.querySelectorAll('[data-wa]').forEach(function (a) {
-    a.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(MSG[a.dataset.wa] || MSG.general);
+    var text = a.dataset.date
+      ? 'Hola, quisiera consultar el ' + a.dataset.date + ' para Da Get Up en Medellín (Medellín Takeover). ¿Podemos revisar formato y condiciones de booking?'
+      : (MSG[a.dataset.wa] || MSG.general);
+    a.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(text);
     a.target = '_blank'; a.rel = 'noopener';
   });
 
