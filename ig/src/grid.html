@@ -50,8 +50,9 @@ const HL = [
   { t: 'MDE', c: 'var(--acido)', g: () => word('MDE', '#d4ff00', 30) },
   { t: 'Shows', c: 'var(--acido)', g: () => DOT(15, 15, (x, y) => ([".....xxxxx.....","....xxxxxxx....","...xx.x.x.xx...","...xxxxxxxxx...","...xx.x.x.xx...","....xxxxxxx....",".....xxxxx.....","....xxxxxxx....",".....xxxxx.....","......xxx......","......xxx......","......xxx......",".......x.......",".......x.......",".......x......."])[y][x] === "x", "#d4ff00", 30) },
   { t: 'Música', c: 'var(--hielo)', g: () => DOT(15, 15, (x, y) => ([".....xxxxxxxxx.",".....xxxxxxxxx.",".....x.......x.",".....x.......x.",".....x.......x.",".....x.......x.",".....x.......x.",".....x.......x.",".....x.......x.","..xxxx....xxxx.",".xxxxx...xxxxx.",".xxxxx...xxxxx.","..xxx.....xxx..","...............","..............."])[y][x] === "x", "#3df5ff", 30) },
+  { t: 'Videos', c: 'var(--uv)', g: () => DOT(15, 15, (x, y) => (["...............",".xxxxxxxxxxxxx.",".x...........x.",".x....x......x.",".x....xx.....x.",".x....xxx....x.",".x....xxxx...x.",".x....xxxxx..x.",".x....xxxx...x.",".x....xxx....x.",".x....xx.....x.",".x....x......x.",".x...........x.",".xxxxxxxxxxxxx.","..............."])[y][x] === "x", "#7b2cff", 30) },
   { t: 'Andar', c: 'var(--calor)', g: () => { const pts = []; for (let k = 0; k <= 60; k++) { const u = k / 60; pts.push([1.5 + u * 11, 13 - u * 11 + Math.sin(u * Math.PI * 2) * 3.2]); } return DOT(15, 15, (x, y) => { const d = Math.min(...pts.map(([px, py]) => Math.hypot(x - px, y - py))); const end = Math.hypot(x - 12.5, y - 2) < 1.7; const start = Math.hypot(x - 1.5, y - 13) < 1.1; return end || start ? true : d < .75 ? true : false; }, '#ff2e7e', 30); } },
-  { t: 'Booking', c: 'var(--uv)', g: () => DOT(11, 11, (x, y) => (y === 0 && x >= 4) || (x === 10 && y <= 6) || (x + y === 10 && x >= 1) ? true : false, '#7b2cff', 40) },
+  { t: 'Booking', c: 'var(--hueso)', g: () => DOT(11, 11, (x, y) => (y === 0 && x >= 4) || (x === 10 && y <= 6) || (x + y === 10 && x >= 1) ? true : false, '#ede6da', 40) },
 ];
 function hl(i, px = 1080, story = true) {
   const h = HL[i];
@@ -83,6 +84,7 @@ const CARD = [
   { t: "Medellín<br>Takeover", sub: "13 — 26 · 11 · 2026" },
   { t: "Shows", sub: "Europa 2022 — Medellín 2026 · en vivo" },
   { t: "Música", sub: "Lanzamientos · Señales · estudio" },
+  { t: "Videos", sub: "Owl Frequencies · ft. Teosinte · Señales" },
   { t: "Andar", sub: "Lugares · ruta · día a día" },
   { t: "Booking", sub: "Live act · DJ set<br>werock.space/dagetup · DM o WhatsApp" },
 ];
@@ -99,7 +101,7 @@ const post = i => `<div style="position:absolute;inset:0">${POSTS[i].html}${i > 
 // ---------- Mockup del perfil ----------
 function perfil(o) {
   const W = 1180, cell = (W - 8) / 3;
-  const hls = HL.map((h, i) => `<div style="display:grid;justify-items:center;gap:14px"><div style="width:146px;height:146px;border-radius:50%;padding:5px;border:2px solid #3a3a3e"><div style="position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden"><img src="/dagetup-medellin/ig/perfil/destacadas/portada-${i + 1}-${["mde","shows","musica","andar","booking"][i]}.png" style="width:100%;height:100%;object-fit:cover"></div></div><span style="font:600 23px Inter;color:#ede6da">${h.t}</span></div>`).join('');
+  const hls = HL.map((h, i) => `<div style="display:grid;justify-items:center;gap:14px"><div style="width:146px;height:146px;border-radius:50%;padding:5px;border:2px solid #3a3a3e"><div style="position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden"><img src="/dagetup-medellin/ig/perfil/destacadas/portada-${i + 1}-${["mde","shows","musica","videos","andar","booking"][i]}.png" style="width:100%;height:100%;object-fit:cover"></div></div><span style="font:600 23px Inter;color:#ede6da">${h.t}</span></div>`).join('');
   const order = [9, 8, 7, 6, 5, 4, 3, 2, 1];
   const grid = order.map(i => `<div style="position:relative;width:${cell}px;height:${cell * 4 / 3}px;overflow:hidden"><div style="position:absolute;left:0;top:0;width:1080px;height:1440px;transform:scale(${cell / 1080});transform-origin:0 0">${post(i)}</div>${POSTS[i].f === 'Reel' ? '<svg style="position:absolute;right:16px;top:16px" width="34" height="34" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>' : POSTS[i].f === 'Carrusel' ? '<svg style="position:absolute;right:16px;top:16px" width="34" height="34" viewBox="0 0 24 24"><rect x="7" y="3" width="13" height="13" rx="2" fill="none" stroke="#fff" stroke-width="2"/><rect x="3" y="7" width="13" height="13" rx="2" fill="#fff"/></svg>' : ''}</div>`).join('');
   return `<div style="width:${W}px;background:#000;color:#ede6da;font-family:Inter,sans-serif">
