@@ -89,7 +89,7 @@ const POSTS = {
   6: { f: "Reel", era: "Calor", n: "Back To", html: photo(G + "backto.jpg", "50% 50%", "var(--calor)", "duo", "--b:1.5;--k:1.4") + fade + title("Back To") + tag("En Spotify") },
   7: { f: "Reel", era: "Ácido", n: "Tu foto en puntos", html: `<div class="duo real"><img src="${G}duo-9.jpg" style="object-position:50% 40%"></div>` },
   8: { f: "Reel", era: "Ácido", n: "Medellín", html: photo(A + "fest-carpa.jpg", "55% 50%", "var(--acido)", "duo", "--b:1.9;--k:1.5") + fade + title("Medellín") + tag("13 — 26 · 11") },
-  9: { f: "Foto", era: "Ácido", n: "Takeover", html: `<div style="position:absolute;inset:0;background:#0b0b0c"></div><img src="${BUHO("acido")}" style="position:absolute;left:60px;top:70px;width:200px"><div class="cond" style="position:absolute;left:56px;bottom:200px;font-size:212px;color:var(--acido)">Medellín<br>Takeover</div><div class="mono" style="position:absolute;left:62px;bottom:110px;font-size:42px;letter-spacing:.14em">13 — 26 · 11 · 2026</div><div class="mono" style="position:absolute;left:62px;bottom:60px;font-size:24px;color:var(--ceniza)">14 noches · Booking abierto</div>` },
+  9: { f: "Reel", era: "UV", n: "Owl Frequencies", html: photo(A + "owl-poster.jpg", "58% 50%", "var(--uv)", "duo", "--b:2.1;--k:1.5") + fade + title("Owl<br>Frequencies") + tag("Video oficial · YouTube") },
 };
 const CARD = [
   { t: "Medellín<br>Takeover", sub: "13 — 26 · 11 · 2026" },
@@ -113,8 +113,26 @@ const ALBUM = {
   3: { o: "T3", n: "Camino", sub: "El Andar · próximamente", lado: "B1", c: "var(--hueso)" },
   4: { o: "D4", n: "Floating<br>Memories", sub: "Da Get Up", lado: "A3", c: "var(--hueso)" },
   5: { o: "D1", n: "My love<br>for you", sub: "Da Get Up", lado: "A4", c: "var(--acido)" },
+  7: { o: "D3", n: "Medellín<br>Takeover", sub: "13 — 26 · 11 · 2026", lado: "MDE", c: "var(--acido)" },
   6: { o: "G", n: "Owl<br>Frequencies", sub: "Video oficial en YouTube", lado: "A5", c: "var(--uv)" },
 };
+const ALBUM2 = {
+  8: { src: A + "fest-verde.jpg", pos: "28% 30%", m: "real", c: "var(--calor)", n: "I can't go<br>for that", sub: "Da Get Up", lado: "A6" },
+  9: { src: A + "live-teclado-2.jpg", pos: "50% 55%", m: "bw", c: "var(--hueso)", n: "Tu hijo mío", sub: "En vivo · sin cortes", lado: "A7" },
+  10: { src: A + "fest-rojo.jpg", pos: "60% 50%", m: "duo", c: "var(--calor)", n: "Lejanía", sub: "ft. Teosinte", lado: "A8", v: "--b:1.8;--k:1.4" },
+  11: { src: A + "hero.jpg", pos: "45% 40%", m: "duo", c: "var(--hielo)", n: "Sin hayarlo<br>al 100", sub: "Estudio · en vivo", lado: "A9", v: "--b:1.7;--k:1.4" },
+  12: { src: A + "photo-04.png", pos: "50% 40%", m: "real", c: "var(--acido)", n: "Following<br>Lights", sub: "Próximamente", lado: "B2" },
+  13: { src: A + "fest-carpa.jpg", pos: "50% 50%", m: "duo", c: "var(--uv)", n: "El Andar", sub: "El álbum · próximamente", lado: "B", v: "--b:2.0;--k:1.5" },
+};
+function album2(i) {
+  const a = ALBUM2[i];
+  return `<div style="position:absolute;inset:0;background:#0b0b0c"></div>
+    <div style="position:absolute;left:60px;top:60px;width:960px;height:960px;overflow:hidden">${photo(a.src, a.pos, a.m === "duo" ? a.c : "#000", a.m, a.v || "")}<div class="grain"></div></div>
+    <div class="mono" style="position:absolute;left:62px;top:1060px;font-size:24px;color:var(--ceniza)">Lado ${a.lado} · Da Get Up</div>
+    <div class="cond" style="position:absolute;left:58px;top:1110px;font-size:${a.n.includes("<br>") ? 118 : 150}px;color:${a.c}">${a.n}</div>
+    <div class="mono" style="position:absolute;right:62px;bottom:62px;font-size:22px;color:var(--ceniza);text-align:right">${a.sub}</div>
+    <img src="${BUHO("hueso")}" style="position:absolute;right:62px;top:1062px;width:120px;opacity:.85">`;
+}
 function album(i) {
   const a = ALBUM[i];
   return `<div style="position:absolute;inset:0;background:#0b0b0c"></div>
@@ -151,7 +169,7 @@ window.READY = (async () => {
   if (k === 'avatar') { size(1080, 1080); root.innerHTML = avatar(q.get('o') || 'A', 1080); }
   else if (k === 'hl') { size(1080, 1920); root.innerHTML = `<div style="position:absolute;inset:0">${hl(+q.get('i'))}</div>`; }
   else if (k === 'post') { size(1080, 1440); root.innerHTML = post(+q.get('i')); }
-  else if (k === 'album') { size(1080, 1440); root.innerHTML = album(+q.get('i')); }
+  else if (k === 'album') { size(1080, 1440); const n = +q.get('i'); root.innerHTML = n >= 8 ? album2(n) : album(n); }
   else if (k === 'card') { size(1080, 1920); root.innerHTML = card(+q.get('i')); }
   else if (k === 'booking') { size(1080, 1920); root.innerHTML = `<div style="position:absolute;inset:0;background:radial-gradient(70% 45% at 50% 40%,#1a0b33,#0b0b0c 75%)"></div><img src="${LOGO("hueso")}" style="position:absolute;left:190px;top:420px;width:700px"><div class="cond" style="position:absolute;left:0;right:0;top:900px;text-align:center;font-size:190px;color:var(--acido)">Booking</div><div class="mono" style="position:absolute;left:0;right:0;top:1130px;text-align:center;font-size:34px;line-height:2">Live act · DJ set<br>Colombia · Internacional</div><div class="mono" style="position:absolute;left:0;right:0;top:1400px;text-align:center;font-size:30px;color:var(--ceniza);line-height:2">werock.space/dagetup<br>DM o WhatsApp en la bio</div>`; }
   else if (k === 'perfil') { root.innerHTML = perfil(q.get('o') || 'A'); }
