@@ -54,6 +54,8 @@ button:hover{background:var(--acido);color:#000}
 @media(max-width:560px){.links li{grid-template-columns:1fr}}
 details{margin-top:60px;border-top:1px solid var(--linea);padding-top:24px}
 summary{cursor:pointer;font-family:Archivo,sans-serif;font-stretch:62%;font-weight:800;text-transform:uppercase;font-size:28px}
+.links li span{color:#cfc8bc}
+@media(max-width:800px){.hoy-top{grid-template-columns:1fr!important}}
 </style>
 </head>
 <body>
@@ -62,12 +64,221 @@ summary{cursor:pointer;font-family:Archivo,sans-serif;font-stretch:62%;font-weig
     <img src="src/img/buho-blanco.svg" alt="">
     <p class="mono muted">Da Get Up · @dagetup90 · Plan de redes</p>
     <h1 class="cond">Bajo la <span>superficie</span></h1>
-    <p class="muted">Todo lo de redes en un solo lugar: el perfil, las 9 piezas de arranque (del 4 al 11 de noviembre, en orden), las Señales de cada canción y el banco de visuales. Baja cada pieza, copia el texto y publica.</p>
+    <p class="muted">Todo lo de redes en un solo lugar. Hoy: arreglar el perfil y subir las 9 piezas en orden. Baja cada pieza, copia el texto y publica.</p>
     <p class="mono eras"><span style="color:var(--acido)">Ácido · Takeover</span><span style="color:var(--hielo)">Hielo · Skyfall</span><span style="color:var(--uv)">UV · Owl Frequencies</span><span style="color:var(--calor)">Calor · Back To</span></p>
     <nav class="index">
-      <a href="#perfil">00 Perfil</a><a href="#p01">01</a><a href="#p02">02</a><a href="#p03">03</a><a href="#p04">04</a><a href="#p05">05</a><a href="#p06">06</a><a href="#p07">07</a><a href="#p08">08</a><a href="#p09">09</a><a href="#senales">Señales</a><a href="#visuales">Visuales</a><a href="#extras">Historias</a>
+      <a href="#hoy">Hoy</a><a href="#foto">Foto</a><a href="#destacadas">Destacadas</a><a href="#h01">01</a><a href="#h02">02</a><a href="#h03">03</a><a href="#h04">04</a><a href="#h05">05</a><a href="#h06">06</a><a href="#h07">07</a><a href="#h08">08</a><a href="#h09">09</a><a href="#pauta">Pauta</a><a href="#senales">Señales</a><a href="#visuales">Visuales</a><a href="#extras">Historias</a>
     </nav>
   </header>
+
+
+  <!-- HOY · LANZAMIENTO DEL PERFIL -->
+  <section class="post" id="hoy" style="--era:var(--acido)">
+    <div><div class="n cond">Hoy</div><p class="mono muted when">Relanzamiento</p></div>
+    <div>
+      <h2>El perfil en un día</h2>
+      <p class="how">Se usa @dagetup90 tal como está (69 seguidores). Primero se arregla el perfil, después se suben las 9 piezas en orden, de la 01 a la 09, con 2 o 3 minutos entre cada una. La última que subes queda arriba a la izquierda. Así se ve terminado:</p>
+      <div style="display:grid;grid-template-columns:minmax(0,420px) 1fr;gap:28px;align-items:start" class="hoy-top">
+        <figure><img src="grid/perfil-mockup.jpg?v=2" alt="Así queda el perfil: foto, bio, destacadas y grid de 9" loading="lazy"><figcaption><span class="mono">Así queda</span><a class="dl" href="grid/perfil-mockup.jpg" download>Bajar</a></figcaption></figure>
+        <div>
+          <p class="mono" style="color:var(--acido);margin-bottom:10px">Paso 1 · Antes de publicar</p>
+          <ul class="links">
+            <li><b>Archivar lo viejo</b><span>Perfil → cada publicación anterior → ··· → Archivar. No se borra: queda guardado y se puede restaurar.</span></li>
+            <li><b>Nombre</b><span>Da Get Up · DJ & Live Act <i class="muted">(hoy dice "Dhiguera90": el nombre es lo que se busca)</i></span></li>
+            <li><b>Categoría</b><span>Músico/banda · cuenta profesional</span></li>
+            <li><b>Bio</b><span>La del bloque Perfil, más abajo</span></li>
+            <li><b>Foto</b><span>Opción C, abajo</span></li>
+            <li><b>Destacadas</b><span>Las 5 portadas, abajo</span></li>
+          </ul>
+          <p class="mono" style="color:var(--acido);margin:22px 0 10px">Grid: lo que se lee de arriba abajo</p>
+          <ul class="links">
+            <li><b>Fila 1 · ácido</b><span>Medellín Takeover: lo que viene</span></li>
+            <li><b>Fila 2 · espectro</b><span>Back To, Owl Frequencies y Skyfall: la paleta Frecuencias, una canción por color</span></li>
+            <li><b>Fila 3 · identidad</b><span>Logo, live session y tu mirada</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="post" id="foto" style="--era:var(--hueso)">
+    <div><div class="n cond">◉</div><p class="mono muted when">Foto de perfil</p></div>
+    <div>
+      <h2>Foto de perfil · 4 opciones</h2>
+      <p class="how"><span class="tag on">Recomendada: C</span>La cara vende en anuncios y en el círculo de historias. La C usa la luz real del show (magenta y verde agua), que ya es la paleta Frecuencias, y se ve natural al lado de un grid en duotono. El búho queda para las destacadas, los posts y el merch.</p>
+      <div class="grid">
+        <figure><img src="perfil/avatar/perfil-C.png?v=2" alt="C · Luz real ★" loading="lazy" style="aspect-ratio:1/1;object-fit:cover"><figcaption><span class="mono">C · Luz real ★</span><a class="dl" href="perfil/avatar/perfil-C.png" download>Bajar</a></figcaption></figure>
+        <figure><img src="perfil/avatar/perfil-A.png?v=2" alt="A · Duotono ácido" loading="lazy" style="aspect-ratio:1/1;object-fit:cover"><figcaption><span class="mono">A · Duotono ácido</span><a class="dl" href="perfil/avatar/perfil-A.png" download>Bajar</a></figcaption></figure>
+        <figure><img src="perfil/avatar/perfil-B.png?v=2" alt="B · Blanco y negro" loading="lazy" style="aspect-ratio:1/1;object-fit:cover"><figcaption><span class="mono">B · Blanco y negro</span><a class="dl" href="perfil/avatar/perfil-B.png" download>Bajar</a></figcaption></figure>
+        <figure><img src="perfil/avatar/perfil-D.png?v=2" alt="D · Cantando" loading="lazy" style="aspect-ratio:1/1;object-fit:cover"><figcaption><span class="mono">D · Cantando</span><a class="dl" href="perfil/avatar/perfil-D.png" download>Bajar</a></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="post" id="destacadas" style="--era:var(--hueso)">
+    <div><div class="n cond">◎</div><p class="mono muted when">Destacadas</p></div>
+    <div>
+      <h2>Destacadas · Frecuencias</h2>
+      <p class="how"><span class="tag on">5 portadas</span>Cada destacada lleva un color de la paleta y un ícono de puntos. Vistas juntas, la fila del perfil muestra el espectro completo. Se crea subiendo una historia y fijándola. Después: Editar destacada → Editar portada.</p>
+      <div class="grid st">
+        <figure><img src="perfil/destacadas/destacada-1.png?v=2" alt="Medellín" loading="lazy" style="aspect-ratio:9/16;object-fit:cover"><figcaption><span class="mono">Medellín</span><a class="dl" href="perfil/destacadas/destacada-1.png" download>Bajar</a></figcaption></figure>
+        <figure><img src="perfil/destacadas/destacada-2.png?v=2" alt="Música" loading="lazy" style="aspect-ratio:9/16;object-fit:cover"><figcaption><span class="mono">Música</span><a class="dl" href="perfil/destacadas/destacada-2.png" download>Bajar</a></figcaption></figure>
+        <figure><img src="perfil/destacadas/destacada-3.png?v=2" alt="Live" loading="lazy" style="aspect-ratio:9/16;object-fit:cover"><figcaption><span class="mono">Live</span><a class="dl" href="perfil/destacadas/destacada-3.png" download>Bajar</a></figcaption></figure>
+        <figure><img src="perfil/destacadas/destacada-4.png?v=2" alt="Visuales" loading="lazy" style="aspect-ratio:9/16;object-fit:cover"><figcaption><span class="mono">Visuales</span><a class="dl" href="perfil/destacadas/destacada-4.png" download>Bajar</a></figcaption></figure>
+        <figure><img src="perfil/destacadas/destacada-5.png?v=2" alt="Booking" loading="lazy" style="aspect-ratio:9/16;object-fit:cover"><figcaption><span class="mono">Booking</span><a class="dl" href="perfil/destacadas/destacada-5.png" download>Bajar</a></figcaption></figure>
+      </div>
+      <ul class="links">
+        <li><b>Medellín</b><span>Las 3 historias Takeover (abajo, en "Historias de apoyo") y luego cada noche confirmada</span></li>
+        <li><b>Música</b><span>Las 3 historias de Skyfall y lo que compartas de los posts 04, 05 y 06</span></li>
+        <li><b>Live</b><span>Comparte el post 02 y clips de shows</span></li>
+        <li><b>Visuales</b><span>Comparte el post 07 y las Señales</span></li>
+        <li><b>Booking</b><span>Esta historia, con sticker de enlace a werock.space/dagetup</span></li>
+      </ul>
+      <div class="grid st" style="margin-top:14px"><figure><img src="perfil/destacadas/historia-booking.png?v=2" alt="Historia booking" loading="lazy" style="aspect-ratio:9/16;object-fit:cover"><figcaption><span class="mono">Historia booking</span><a class="dl" href="perfil/destacadas/historia-booking.png" download>Bajar</a></figcaption></figure></div>
+    </div>
+  </section>
+
+  <section class="post" id="h01" style="--era:var(--acido)">
+    <div><div class="n cond">01</div><p class="mono muted when">Foto · ácido</p></div>
+    <div>
+      <h2>Foto · Mirada</h2>
+      <p class="how"><span class="tag on">Foto</span>Sube la imagen en 3:4 (toca el ícono de recorte y elige 3:4). Sin música.</p>
+      <div class="grid st"><figure><img src="grid/01-portada.png?v=2" alt="Foto 3:4" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">Foto 3:4</span><a class="dl" href="grid/01-portada.png" download>Bajar</a></figcaption></figure></div>
+      <div class="cap" id="hc01">Bajo la superficie.</div>
+      <button data-copy="hc01">Copiar texto</button>
+    </div>
+  </section>
+
+  <section class="post" id="h02" style="--era:var(--acido)">
+    <div><div class="n cond">02</div><p class="mono muted when">Reel · ácido</p></div>
+    <div>
+      <h2>Reel · Live session</h2>
+      <p class="how"><span class="tag on">Reel</span>El video trae su audio. Portada: sube la imagen desde "Editar portada → Añadir desde el carrete". Invita como colaborador a JAVA Filmmaker y a We Rock.</p>
+      <div class="grid st"><figure><video src="reels/reel-01-live-session.mp4" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span class="mono">Video</span><a class="dl" href="reels/reel-01-live-session.mp4" download>Bajar</a></figcaption></figure><figure><img src="grid/02-portada.png?v=2" alt="Portada" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">Portada</span><a class="dl" href="grid/02-portada.png" download>Bajar</a></figcaption></figure></div>
+      <div class="cap" id="hc02">Live session en We Rock Studio.
+Teclados, voz y Ableton, todo en vivo.
+
+Cámara: JAVA Filmmaker
+
+#DaGetUp #LiveAct #HouseMusic</div>
+      <button data-copy="hc02">Copiar texto</button>
+    </div>
+  </section>
+
+  <section class="post" id="h03" style="--era:var(--hueso)">
+    <div><div class="n cond">03</div><p class="mono muted when">Foto · noche</p></div>
+    <div>
+      <h2>Foto · Logo</h2>
+      <p class="how"><span class="tag on">Foto</span>Imagen 3:4. Respira entre las fotos y los reels.</p>
+      <div class="grid st"><figure><img src="grid/03-portada.png?v=2" alt="Foto 3:4" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">Foto 3:4</span><a class="dl" href="grid/03-portada.png" download>Bajar</a></figcaption></figure></div>
+      <div class="cap" id="hc03">Da Get Up.
+Productor, DJ y live act. Colombia.
+Gira Europa 2022 · Skyfall en Mikro Teck Records.</div>
+      <button data-copy="hc03">Copiar texto</button>
+    </div>
+  </section>
+
+  <section class="post" id="h04" style="--era:var(--hielo)">
+    <div><div class="n cond">04</div><p class="mono muted when">Reel · hielo</p></div>
+    <div>
+      <h2>Reel · Skyfall · Señal 01</h2>
+      <p class="how"><span class="tag on">Reel</span>Sube el video HD: trae el audio de Skyfall. Para pauta.</p>
+      <div class="grid st"><figure><video src="senales/senal-01-skyfall.mp4" controls loop playsinline preload="none" style="aspect-ratio:4/5"></video><figcaption><span class="mono">Video</span><a class="dl" href="senales/senal-01-skyfall-hd.mp4" download>Bajar</a></figcaption></figure><figure><img src="grid/04-portada.png?v=2" alt="Portada" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">Portada</span><a class="dl" href="grid/04-portada.png" download>Bajar</a></figcaption></figure></div>
+      <div class="cap" id="hc04">Skyfall. Señal 01.
+Mikro Teck Records · en Spotify.
+
+#DaGetUp #Skyfall #DeepHouse</div>
+      <button data-copy="hc04">Copiar texto</button>
+    </div>
+  </section>
+
+  <section class="post" id="h05" style="--era:var(--uv)">
+    <div><div class="n cond">05</div><p class="mono muted when">Reel · UV</p></div>
+    <div>
+      <h2>Reel · Owl Frequencies · Señal 02</h2>
+      <p class="how"><span class="tag on">Reel</span>Sube el video HD: trae el audio. Para pauta: es el reel con más gancho visual.</p>
+      <div class="grid st"><figure><video src="senales/senal-02-owl-frequencies.mp4" controls loop playsinline preload="none" style="aspect-ratio:4/5"></video><figcaption><span class="mono">Video</span><a class="dl" href="senales/senal-02-owl-frequencies-hd.mp4" download>Bajar</a></figcaption></figure><figure><img src="grid/05-portada.png?v=2" alt="Portada" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">Portada</span><a class="dl" href="grid/05-portada.png" download>Bajar</a></figcaption></figure></div>
+      <div class="cap" id="hc05">Owl Frequencies. Señal 02.
+Video completo en YouTube, link en la bio.
+
+#DaGetUp #OwlFrequencies #ElectronicMusic</div>
+      <button data-copy="hc05">Copiar texto</button>
+    </div>
+  </section>
+
+  <section class="post" id="h06" style="--era:var(--calor)">
+    <div><div class="n cond">06</div><p class="mono muted when">Reel · calor</p></div>
+    <div>
+      <h2>Reel · Back To</h2>
+      <p class="how"><span class="tag on">Reel</span>El video no trae audio. En Instagram: Música → busca "Da Get Up Back To" y elige el tramo del drop. Así el reel queda enlazado a la canción y otros pueden usarla.</p>
+      <div class="grid st"><figure><video src="visuales/superficie-4x5.mp4" controls loop playsinline preload="none" style="aspect-ratio:4/5"></video><figcaption><span class="mono">Video</span><a class="dl" href="visuales/superficie-4x5.mp4" download>Bajar</a></figcaption></figure><figure><img src="grid/06-portada.png?v=2" alt="Portada" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">Portada</span><a class="dl" href="grid/06-portada.png" download>Bajar</a></figcaption></figure></div>
+      <div class="cap" id="hc06">Back To. En Spotify.
+
+#DaGetUp #BackTo #House</div>
+      <button data-copy="hc06">Copiar texto</button>
+    </div>
+  </section>
+
+  <section class="post" id="h07" style="--era:var(--acido)">
+    <div><div class="n cond">07</div><p class="mono muted when">Reel · ácido</p></div>
+    <div>
+      <h2>Reel · Tu foto en puntos</h2>
+      <p class="how"><span class="tag on">Reel</span>La animación de tu foto hecha de puntos. Sin audio: en Instagram, Música → "Da Get Up Floating Memories" (o la que prefieras de tus temas). Portada: un cuadro del mismo video.</p>
+      <div class="grid st"><figure><video src="visuales/duotono-4x5.mp4" controls loop playsinline preload="none" style="aspect-ratio:4/5"></video><figcaption><span class="mono">Video</span><a class="dl" href="visuales/duotono-4x5.mp4" download>Bajar</a></figcaption></figure><figure><img src="grid/07-portada.png?v=2" alt="Portada" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">Portada</span><a class="dl" href="grid/07-portada.png" download>Bajar</a></figcaption></figure></div>
+      <div class="cap" id="hc07">Floating Memories.
+
+#DaGetUp #FloatingMemories</div>
+      <button data-copy="hc07">Copiar texto</button>
+    </div>
+  </section>
+
+  <section class="post" id="h08" style="--era:var(--acido)">
+    <div><div class="n cond">08</div><p class="mono muted when">Reel · ácido</p></div>
+    <div>
+      <h2>Reel · Medellín</h2>
+      <p class="how"><span class="tag on">Reel</span>El video trae su audio. Portada en ácido con la carpa llena.</p>
+      <div class="grid st"><figure><video src="reels/reel-08-medellin.mp4" controls loop playsinline preload="none" style="aspect-ratio:9/16"></video><figcaption><span class="mono">Video</span><a class="dl" href="reels/reel-08-medellin.mp4" download>Bajar</a></figcaption></figure><figure><img src="grid/08-portada.png?v=2" alt="Portada" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">Portada</span><a class="dl" href="grid/08-portada.png" download>Bajar</a></figcaption></figure></div>
+      <div class="cap" id="hc08">Medellín. 13 — 26 de noviembre.
+Booking abierto: DM o WhatsApp en la bio.
+
+#DaGetUp #Medellín #MedellínTakeover</div>
+      <button data-copy="hc08">Copiar texto</button>
+    </div>
+  </section>
+
+  <section class="post" id="h09" style="--era:var(--acido)">
+    <div><div class="n cond">09</div><p class="mono muted when">Carrusel · ácido</p></div>
+    <div>
+      <h2>Carrusel · Medellín Takeover</h2>
+      <p class="how"><span class="tag on">Carrusel</span>Tres imágenes en 3:4, en este orden. Va de última para que quede arriba a la izquierda. Fíjala en el perfil.</p>
+      <div class="grid st"><figure><img src="grid/09-portada.png?v=2" alt="1" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">1</span><a class="dl" href="grid/09-portada.png" download>Bajar</a></figcaption></figure><figure><img src="grid/09-slide-2.png?v=2" alt="2" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">2</span><a class="dl" href="grid/09-slide-2.png" download>Bajar</a></figcaption></figure><figure><img src="grid/09-slide-3.png?v=2" alt="3" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">3</span><a class="dl" href="grid/09-slide-3.png" download>Bajar</a></figcaption></figure></div>
+      <div class="cap" id="hc09">Medellín Takeover.
+14 noches, del 13 al 26 de noviembre.
+Live act y DJ set. Booking por DM o WhatsApp en la bio.
+
+#DaGetUp #MedellínTakeover #Medellín</div>
+      <button data-copy="hc09">Copiar texto</button>
+    </div>
+  </section>
+
+  <section class="post" id="pauta" style="--era:var(--acido)">
+    <div><div class="n cond">$</div><p class="mono muted when">Pauta y comunidad</p></div>
+    <div>
+      <h2>Pauta y a quién seguir</h2>
+      <p class="how"><span class="tag on">Después de publicar</span>Fija en el perfil la 09, la 05 y la 02.</p>
+      <ul class="links">
+        <li><b>Qué pautar</b><span>Dos reels: 05 Owl Frequencies (el gancho visual) y 02 Live session (te muestra tocando). A los 3 días se deja solo el que tenga mejor costo por visita al perfil.</span></li>
+        <li><b>Objetivo</b><span>"Más visitas al perfil". Si llegan al perfil y lo ven así de completo, siguen.</span></li>
+        <li><b>Público</b><span>Colombia (Bogotá y Medellín primero), 18–34 años. Intereses: house, deep house, música electrónica, festivales y Boiler Room.</span></li>
+        <li><b>Presupuesto de arranque</b><span>7 días por reel, con un monto diario bajo para medir. Se sube solo lo que funciona.</span></li>
+        <li><b>A quién seguir</b><span>Venues, promotores y colectivos de Medellín y Bogotá, sellos de house y DJs de la escena. Entre 30 y 50 por día, comentando de verdad. Nada de seguir y dejar de seguir.</span></li>
+        <li><b>Música en Instagram</b><span>Si un tema no aparece en la biblioteca, lo habilita la distribuidora (Mikro Teck para Skyfall). Mientras tanto se usa el video que ya trae el audio.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <details id="anterior">
+    <summary>Plan anterior · 4 al 11 de noviembre</summary>
 
   <!-- 00 PERFIL -->
   <section class="post" id="perfil">
@@ -255,6 +466,8 @@ Booking en la bio.
       <button data-copy="c09">Copiar texto</button>
     </div>
   </section>
+
+  </details>
 
   <!-- SEÑALES -->
   <section class="post" id="senales" style="--era:var(--hueso)">

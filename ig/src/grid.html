@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<title>Da Get Up · Perfil, destacadas y grid</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=block" rel="stylesheet">
+<style>
+/* Generador de piezas del perfil. ?k=avatar&o=A..E · ?k=hl&i=0..4 · ?k=post&i=1..9 · ?k=perfil */
+:root{--noche:#0b0b0c;--noche-uv:#1a0b33;--hueso:#ede6da;--ceniza:#8a857d;--acido:#d4ff00;--uv:#7b2cff;--calor:#ff2e7e;--hielo:#3df5ff}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--noche);color:var(--hueso);overflow:hidden}
+.cond{font-family:Archivo,sans-serif;font-stretch:62%;font-weight:900;text-transform:uppercase;line-height:.86}
+.mono{font-family:"JetBrains Mono",monospace;font-weight:500;text-transform:uppercase;letter-spacing:.18em}
+.duo{position:absolute;inset:0;overflow:hidden;background:var(--c)}
+.duo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(var(--k,1.45)) brightness(var(--b,1.6));mix-blend-mode:multiply}
+.bw img{filter:grayscale(1) contrast(1.35) brightness(1.05)}
+.real img{filter:contrast(1.08) saturate(1.1)}
+.bw,.real{background:#000}.bw img,.real img{mix-blend-mode:normal}
+.grain{position:absolute;inset:0;background:radial-gradient(circle,rgba(11,11,12,.55) 30%,transparent 34%) 0 0/6px 6px;opacity:.22;mix-blend-mode:multiply;pointer-events:none}
+.vign{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(11,11,12,.55) 100%)}
+</style></head>
+<body><div id="root"></div>
+<script>
+const A = '/dagetup/assets/img/', G = '/dagetup-medellin/ig/src/img/grid/';
+const BUHO = c => `/dagetup-manual-de-marca/descargas/vector/DaGetUp_Buho_${c}.svg`;
+const LOGO = c => `/dagetup-manual-de-marca/descargas/vector/DaGetUp_Logo_${c}.svg`;
+const LETRAS = c => `/dagetup-manual-de-marca/descargas/vector/DaGetUp_Letras_${c}.svg`;
+const q = new URLSearchParams(location.search), k = q.get('k'), root = document.getElementById('root');
+const size = (w, h) => { document.documentElement.style.width = w + 'px'; document.body.style.width = w + 'px'; document.body.style.height = h + 'px'; root.style.cssText = `position:relative;width:${w}px;height:${h}px;overflow:hidden`; };
+const photo = (src, pos, color, mode = 'duo', extra = '') => `<div class="duo ${mode}" style="--c:${color};${extra}"><img src="${src}" style="object-position:${pos}"></div>`;
+
+// ---------- Foto de perfil ----------
+// fx/fy = cara en px del contenedor 1080 tras object-fit cover; s = zoom
+const AVATAR = {
+  A: { t: "Mirada · duotono ácido", src: A + "fest-verde.jpg", m: "duo", c: "var(--acido)", v: "--b:1.75;--k:1.5", op: "25.5% 0", fx: 275, fy: 202, s: 2.3, ty: 228 },
+  B: { t: "Mirada · blanco y negro", src: A + "fest-verde.jpg", m: "bw", c: "#000", v: "", op: "25.5% 0", fx: 275, fy: 202, s: 2.3, ty: 228 },
+  C: { t: "Mirada · luz real del show", src: A + "fest-verde.jpg", m: "real", c: "#000", v: "", op: "25.5% 0", fx: 275, fy: 202, s: 2.3, ty: 228 },
+  D: { t: "Cantando · duotono ácido", src: A + "live-voz.jpg", m: "duo", c: "var(--acido)", v: "--b:2.3;--k:1.7", op: "50% 0", fx: 636, fy: 372, s: 3.3, ty: 110 },
+  E: { t: "Búho", logo: true },
+};
+function avatar(o, px) {
+  const a = AVATAR[o];
+  if (a.logo) return `<div style="position:relative;width:${px}px;height:${px}px;background:radial-gradient(60% 60% at 50% 50%,#1a0b33,#0b0b0c 75%);display:grid;place-items:center"><img src="${BUHO("hueso")}" style="width:62%"></div>`;
+  return `<div style="position:relative;width:${px}px;height:${px}px;overflow:hidden"><div class="duo ${a.m}" style="--c:${a.c};${a.v}"><img src="${a.src}" style="object-position:${a.op};transform-origin:${a.fx}px ${a.fy}px;transform:translate(${540 - a.fx}px,${a.ty}px) scale(${a.s})"></div><div class="grain"></div></div>`;
+}
+
+// ---------- Destacadas: una banda de color por destacada ----------
+const DOT = (cols, rows, on, color, d) => { let s = ''; for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) { const v = on(x, y); if (v) s += `<circle cx="${x * d + d / 2}" cy="${y * d + d / 2}" r="${d * .38 * (v === true ? 1 : v)}" fill="${color}"/>`; } return `<svg viewBox="0 0 ${cols * d} ${rows * d}" style="width:100%;height:100%" preserveAspectRatio="xMidYMid meet">${s}</svg>`; };
+const FONT = { M: ['10001','11011','10101','10101','10001','10001','10001'], D: ['11110','10001','10001','10001','10001','10001','11110'], E: ['11111','10000','10000','11110','10000','10000','11111'] };
+const word = (w, color, d) => { const L = [...w]; const cols = L.length * 6 - 1; return DOT(cols, 7, (x, y) => { const li = Math.floor(x / 6), cx = x % 6; return cx < 5 && FONT[L[li]][y][cx] === '1'; }, color, d); };
+const HL = [
+  { t: 'Medellín', c: 'var(--acido)', g: () => word('MDE', '#d4ff00', 30) },
+  { t: 'Música', c: 'var(--hielo)', g: () => DOT(15, 15, (x, y) => { const r = Math.hypot(x - 7, y - 7); return (Math.abs(r - 7) < .5 || Math.abs(r - 4.6) < .5 || r < 1.6) ? true : false; }, '#3df5ff', 30) },
+  { t: 'Live', c: 'var(--calor)', g: () => { const h = [3, 6, 9, 5, 11, 7, 4, 8, 10, 6, 3]; return DOT(11, 11, (x, y) => 10 - y < h[x] ? true : false, '#ff2e7e', 34); } },
+  { t: 'Visuales', c: 'var(--uv)', g: () => `<img src="${BUHO('blanco')}" style="width:560px;filter:drop-shadow(0 0 0 #7b2cff)">` },
+  { t: 'Booking', c: 'var(--hueso)', g: () => DOT(11, 11, (x, y) => (y === 0 && x >= 4) || (x === 10 && y <= 6) || (x + y === 10 && x >= 1) ? true : false, '#ede6da', 40) },
+];
+function hl(i, px = 1080, story = true) {
+  const h = HL[i];
+  const glyph = i === 3 ? `<img src="${BUHO('blanco')}" style="width:100%;filter:brightness(0) saturate(100%) invert(22%) sepia(98%) saturate(6000%) hue-rotate(262deg) brightness(105%)">` : h.g();
+  const inner = `<div style="position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(circle 520px at 50% 50%,color-mix(in srgb,${h.c} 16%,#0b0b0c),#0b0b0c 100%)"><div style="width:${i === 3 ? 560 : 420}px;height:420px;display:grid;place-items:center">${glyph}</div></div>`;
+  return inner;
+}
+
+// ---------- Grid de lanzamiento (3:4, 1080×1440) ----------
+const tag = (t, c = 'var(--hueso)') => `<div class="mono" style="position:absolute;left:64px;bottom:60px;font-size:26px;color:${c}">${t}</div>`;
+const title = (t, c = 'var(--hueso)') => `<div class="cond" style="position:absolute;left:60px;bottom:110px;font-size:150px;color:${c}">${t}</div>`;
+const fade = `<div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,11,12,.92) 0%,rgba(11,11,12,0) 42%)"></div>`;
+const owl = (c = 'hueso', w = 120) => `<img src="${BUHO(c)}" style="position:absolute;right:60px;top:60px;width:${w}px">`;
+const POSTS = {
+  1: { f: "Foto", era: "Ácido", n: "Mirada", html: photo(A + "fest-verde.jpg", "28% 30%", "var(--acido)", "duo", "--b:1.8;--k:1.5") + owl("negro") },
+  2: { f: "Reel", era: "Ácido", n: "Live session", html: photo(G + "live-12.jpg", "50% 62%", "var(--acido)", "duo", "--b:1.6;--k:1.4") + fade + title("Live<br>session") + tag("We Rock Studio") },
+  3: { f: "Foto", era: "Noche", n: "Logo", html: `<div style="position:absolute;inset:0;background:radial-gradient(70% 55% at 50% 42%,#1a0b33,#0b0b0c 70%);display:grid;place-items:center"><img src="${LOGO("hueso")}" style="width:62%"></div>` + tag("Productor · DJ · Live act", "var(--ceniza)") },
+  4: { f: "Reel", era: "Hielo", n: "Skyfall", html: photo(G + "sky-14.jpg", "50% 60%", "var(--hielo)", "duo", "--b:1.9;--k:1.5") + fade + title("Skyfall") + tag("Mikro Teck Records") },
+  5: { f: "Reel", era: "UV", n: "Owl Frequencies", html: photo(A + "owl-poster.jpg", "58% 50%", "var(--uv)", "duo", "--b:2.1;--k:1.5") + fade + title("Owl<br>Frequencies") + tag("Video oficial") },
+  6: { f: "Reel", era: "Calor", n: "Back To", html: photo(A + "bio-humo.webp", "50% 22%", "var(--calor)", "duo", "--b:1.5;--k:1.35") + fade + title("Back To") + tag("En Spotify") },
+  7: { f: "Reel", era: "Ácido", n: "Tu foto en puntos", html: `<div class="duo real"><img src="${G}duo-9.jpg" style="object-position:50% 40%"></div>` },
+  8: { f: "Reel", era: "Ácido", n: "Medellín", html: photo(A + "fest-carpa.jpg", "55% 50%", "var(--acido)", "duo", "--b:1.9;--k:1.5") + fade + title("Medellín") + tag("13 — 26 · 11") },
+  9: { f: "Carrusel", era: "Ácido", n: "Takeover", html: `<div style="position:absolute;inset:0;background:#0b0b0c"></div><img src="${BUHO("acido")}" style="position:absolute;left:60px;top:70px;width:200px"><div class="cond" style="position:absolute;left:56px;bottom:200px;font-size:212px;color:var(--acido)">Medellín<br>Takeover</div><div class="mono" style="position:absolute;left:62px;bottom:110px;font-size:42px;letter-spacing:.14em">13 — 26 · 11 · 2026</div><div class="mono" style="position:absolute;left:62px;bottom:60px;font-size:24px;color:var(--ceniza)">14 noches · Booking abierto</div>` },
+  // slides 2–3 del carrusel 09 en 3:4: las piezas 4:5 existentes sobre noche
+  92: { html: `<div style="position:absolute;inset:0;background:#0b0b0c;display:grid;place-items:center"><img src="/dagetup-medellin/ig/takeover-feed-m2.png" style="width:100%"></div>` },
+  93: { html: `<div style="position:absolute;inset:0;background:#0b0b0c;display:grid;place-items:center"><img src="/dagetup-medellin/ig/takeover-feed-m3.png" style="width:100%"></div>` },
+};
+const post = i => `<div style="position:absolute;inset:0">${POSTS[i].html}${i > 90 ? "" : "<div class=\"grain\"></div>"}</div>`;
+
+// ---------- Mockup del perfil ----------
+function perfil(o) {
+  const W = 1180, cell = (W - 8) / 3;
+  const hls = HL.map((h, i) => `<div style="display:grid;justify-items:center;gap:14px"><div style="width:150px;height:150px;border-radius:50%;padding:5px;border:2px solid #3a3a3e"><div style="position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden"><img src="/dagetup-medellin/ig/perfil/destacadas/destacada-${i + 1}.png" style="width:100%;height:100%;object-fit:cover"></div></div><span style="font:600 24px Inter;color:#ede6da">${h.t}</span></div>`).join('');
+  const order = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+  const grid = order.map(i => `<div style="position:relative;width:${cell}px;height:${cell * 4 / 3}px;overflow:hidden"><div style="position:absolute;left:0;top:0;width:1080px;height:1440px;transform:scale(${cell / 1080});transform-origin:0 0">${post(i)}</div>${POSTS[i].f === 'Reel' ? '<svg style="position:absolute;right:16px;top:16px" width="34" height="34" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>' : POSTS[i].f === 'Carrusel' ? '<svg style="position:absolute;right:16px;top:16px" width="34" height="34" viewBox="0 0 24 24"><rect x="7" y="3" width="13" height="13" rx="2" fill="none" stroke="#fff" stroke-width="2"/><rect x="3" y="7" width="13" height="13" rx="2" fill="#fff"/></svg>' : ''}</div>`).join('');
+  return `<div style="width:${W}px;background:#000;color:#ede6da;font-family:Inter,sans-serif">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:34px 40px 20px"><span style="font:700 40px Inter">dagetup90</span><span style="font:500 26px 'JetBrains Mono';color:#8a857d">PERFIL · PLAN</span></div>
+    <div style="display:flex;align-items:center;gap:60px;padding:16px 40px">
+      <div style="width:230px;height:230px;border-radius:50%;padding:7px;background:conic-gradient(#d4ff00,#3df5ff,#7b2cff,#ff2e7e,#d4ff00)"><div style="width:100%;height:100%;border-radius:50%;padding:6px;background:#000"><div style="width:100%;height:100%;border-radius:50%;overflow:hidden;position:relative"><div style="position:absolute;inset:0;transform:scale(${204 / 1080});transform-origin:0 0;width:1080px;height:1080px">${avatar(o, 1080)}</div></div></div></div>
+      <div style="display:flex;gap:70px;font:400 26px Inter;text-align:center"><div><b style="display:block;font:700 38px Inter">9</b>publicaciones</div><div><b style="display:block;font:700 38px Inter">—</b>seguidores</div><div><b style="display:block;font:700 38px Inter">—</b>seguidos</div></div>
+    </div>
+    <div style="padding:18px 40px 0;font:400 28px/1.45 Inter">
+      <b style="font-weight:700">Da Get Up · DJ & Live Act</b><br><span style="color:#8a857d">Músico/banda</span><br>Bajo la superficie<br>DJ · productor · live act con voz<br>Skyfall · Mikro Teck Records<br>Medellín Takeover 13—26.11 ↓<br><span style="color:#9ec5ff">werock.space/dagetup y 4 más</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:28px 40px"><div style="background:#d4ff00;color:#0b0b0c;border-radius:14px;padding:20px;text-align:center;font:700 28px Inter">Seguir</div><div style="background:#262628;border-radius:14px;padding:20px;text-align:center;font:700 28px Inter">Mensaje</div></div>
+    <div style="display:flex;gap:44px;padding:10px 40px 36px">${hls}</div>
+    <div style="display:grid;grid-template-columns:repeat(3,${cell}px);gap:4px">${grid}</div>
+  </div>`;
+}
+
+window.READY = (async () => {
+  if (k === 'avatar') { size(1080, 1080); root.innerHTML = avatar(q.get('o') || 'A', 1080); }
+  else if (k === 'hl') { size(1080, 1920); root.innerHTML = `<div style="position:absolute;inset:0">${hl(+q.get('i'))}</div>`; }
+  else if (k === 'post') { size(1080, 1440); root.innerHTML = post(+q.get('i')); }
+  else if (k === 'booking') { size(1080, 1920); root.innerHTML = `<div style="position:absolute;inset:0;background:radial-gradient(70% 45% at 50% 40%,#1a0b33,#0b0b0c 75%)"></div><img src="${LOGO("hueso")}" style="position:absolute;left:190px;top:420px;width:700px"><div class="cond" style="position:absolute;left:0;right:0;top:900px;text-align:center;font-size:190px;color:var(--acido)">Booking</div><div class="mono" style="position:absolute;left:0;right:0;top:1130px;text-align:center;font-size:34px;line-height:2">Live act · DJ set<br>Colombia · Internacional</div><div class="mono" style="position:absolute;left:0;right:0;top:1400px;text-align:center;font-size:30px;color:var(--ceniza);line-height:2">werock.space/dagetup<br>DM o WhatsApp en la bio</div>`; }
+  else if (k === 'perfil') { root.innerHTML = perfil(q.get('o') || 'A'); }
+  await document.fonts.ready;
+  await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+  if (k === 'perfil') { const h = root.firstElementChild.offsetHeight; size(1180, h); }
+  document.title = 'OK';
+  return document.body.scrollHeight;
+})();
+</script></body></html>
