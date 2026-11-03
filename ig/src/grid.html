@@ -40,12 +40,20 @@ const AVATAR = {
   G: { t: "Cantando · blanco y negro", src: A + "live-voz.jpg", m: "bw lift", c: "#000", v: "", op: "50% 0", fx: 636, fy: 372, s: 3.3, ty: 110 },
   H: { t: "Cantando · duotono UV", src: A + "live-voz.jpg", m: "duo", c: "#9d5cff", v: "--b:2.4;--k:1.7", op: "50% 0", fx: 636, fy: 372, s: 3.3, ty: 110 },
   I: { t: "Cantando · duotono hielo", src: A + "live-voz.jpg", m: "duo", c: "var(--hielo)", v: "--b:2.4;--k:1.7", op: "50% 0", fx: 636, fy: 372, s: 3.3, ty: 110 },
+  D1: { t: "Cantando · duotono ácido", src: A + "live-voz.jpg", m: "duo", c: "var(--acido)", v: "--b:2.3;--k:1.7", op: "50% 0", fx: 636, fy: 372, s: 3.3, ty: 110 },
+  D2: { t: "Cantando · ácido, cara cerca", src: A + "live-voz.jpg", m: "duo", c: "var(--acido)", v: "--b:2.6;--k:1.6", op: "50% 0", fx: 636, fy: 372, s: 4.2, ty: 120 },
+  D3: { t: "Cantando · ácido sobre noche UV", src: A + "live-voz.jpg", m: "duo", c: "var(--acido)", v: "--b:2.3;--k:1.7", op: "50% 0", fx: 636, fy: 372, s: 3.3, ty: 110, bg: "#2a1052" },
+  D4: { t: "Cantando · hueso", src: A + "live-voz.jpg", m: "duo", c: "var(--hueso)", v: "--b:2.4;--k:1.7", op: "50% 0", fx: 636, fy: 372, s: 3.3, ty: 110 },
+  T1: { t: "Takeover · duotono ácido", src: A + "bio-humo.webp", m: "duo", c: "var(--acido)", v: "--b:1.6;--k:1.3", op: "50% 0", fx: 567, fy: 360, s: 2.1, ty: 110 },
+  T2: { t: "Takeover · sin filtro", src: A + "bio-humo.webp", m: "real", c: "#000", v: "", op: "50% 0", fx: 567, fy: 360, s: 2.1, ty: 110 },
+  T3: { t: "Takeover · blanco y negro", src: A + "bio-humo.webp", m: "bw lift", c: "#000", v: "", op: "50% 0", fx: 567, fy: 360, s: 2.1, ty: 110 },
+  T4: { t: "Takeover · ácido, plano abierto", src: A + "bio-humo.webp", m: "duo", c: "var(--acido)", v: "--b:1.6;--k:1.3", op: "50% 0", fx: 567, fy: 420, s: 1.45, ty: 60 },
   E: { t: "Búho", logo: true },
 };
 function avatar(o, px) {
   const a = AVATAR[o];
   if (a.logo) return `<div style="position:relative;width:${px}px;height:${px}px;background:radial-gradient(60% 60% at 50% 50%,#1a0b33,#0b0b0c 75%);display:grid;place-items:center"><img src="${BUHO("hueso")}" style="width:62%"></div>`;
-  return `<div style="position:relative;width:${px}px;height:${px}px;overflow:hidden"><div class="duo ${a.m}" style="--c:${a.c};${a.v}"><img src="${a.src}" style="object-position:${a.op};transform-origin:${a.fx}px ${a.fy}px;transform:translate(${540 - a.fx}px,${a.ty}px) scale(${a.s})"></div><div class="grain"></div></div>`;
+  return `<div style="position:relative;width:${px}px;height:${px}px;overflow:hidden;background:${a.bg || "#000"}"><div class="duo ${a.m}" style="--c:${a.c};${a.v}${a.bg ? `;mix-blend-mode:normal` : ""}"><img src="${a.src}" style="object-position:${a.op};transform-origin:${a.fx}px ${a.fy}px;transform:translate(${540 - a.fx}px,${a.ty}px) scale(${a.s})"></div>${a.bg ? `<div style="position:absolute;inset:0;background:${a.bg};mix-blend-mode:lighten"></div>` : ""}<div class="grain"></div></div>`;
 }
 
 // ---------- Destacadas: una banda de color por destacada ----------
