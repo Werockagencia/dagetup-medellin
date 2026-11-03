@@ -56,6 +56,12 @@ details{margin-top:60px;border-top:1px solid var(--linea);padding-top:24px}
 summary{cursor:pointer;font-family:Archivo,sans-serif;font-stretch:62%;font-weight:800;text-transform:uppercase;font-size:28px}
 .links li span{color:#cfc8bc}
 @media(max-width:800px){.hoy-top{grid-template-columns:1fr!important}}
+.parrilla{display:grid;gap:1px;background:var(--linea);border:1px solid var(--linea)}
+.prow{display:grid;grid-template-columns:110px 110px 1fr 1fr;gap:16px;align-items:start;background:var(--noche);padding:14px;border-left:3px solid var(--era)}
+.prow .pdate{color:var(--hueso)}
+.prow .tag{justify-self:start}
+.prow .cap{margin:0;white-space:pre-wrap}
+@media(max-width:800px){.prow{grid-template-columns:1fr 1fr}.prow>div{grid-column:1/-1}}
 </style>
 </head>
 <body>
@@ -67,7 +73,7 @@ summary{cursor:pointer;font-family:Archivo,sans-serif;font-stretch:62%;font-weig
     <p class="muted">Todo lo de redes en un solo lugar. Hoy: arreglar el perfil y subir las 9 piezas en orden. Baja cada pieza, copia el texto y publica.</p>
     <p class="mono eras"><span style="color:var(--acido)">Ácido · Takeover</span><span style="color:var(--hielo)">Hielo · Skyfall</span><span style="color:var(--uv)">UV · Owl Frequencies</span><span style="color:var(--calor)">Calor · Back To</span></p>
     <nav class="index">
-      <a href="#hoy">Hoy</a><a href="#foto">Foto</a><a href="#destacadas">Destacadas</a><a href="#h01">01</a><a href="#h02">02</a><a href="#h03">03</a><a href="#h04">04</a><a href="#h05">05</a><a href="#h06">06</a><a href="#h07">07</a><a href="#h08">08</a><a href="#h09">09</a><a href="#pauta">Pauta</a><a href="#senales">Señales</a><a href="#visuales">Visuales</a><a href="#extras">Historias</a>
+      <a href="#hoy">Hoy</a><a href="#foto">Foto</a><a href="#destacadas">Destacadas</a><a href="#h01">01</a><a href="#h02">02</a><a href="#h03">03</a><a href="#h04">04</a><a href="#h05">05</a><a href="#h06">06</a><a href="#h07">07</a><a href="#h08">08</a><a href="#h09">09</a><a href="#pauta">Pauta</a><a href="#parrilla">Parrilla</a><a href="#senales">Señales</a><a href="#visuales">Visuales</a><a href="#extras">Historias</a>
     </nav>
   </header>
 
@@ -278,6 +284,143 @@ Booking abierto.</div>
         <li><b>Presupuesto de arranque</b><span>7 días por reel, con un monto diario bajo para medir. Se sube solo lo que funciona.</span></li>
         <li><b>A quién seguir</b><span>Venues, promotores y colectivos de Medellín y Bogotá, sellos de house y DJs de la escena. Entre 30 y 50 por día, comentando de verdad. Nada de seguir y dejar de seguir.</span></li>
         <li><b>Música en Instagram</b><span>Si un tema no aparece en la biblioteca, lo habilita la distribuidora (Mikro Teck para Skyfall). Mientras tanto se usa el video que ya trae el audio.</span></li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- PARRILLA -->
+  <section class="post" id="parrilla" style="--era:var(--acido)">
+    <div><div class="n cond">Mes</div><p class="mono muted when">Nov — dic</p></div>
+    <div>
+      <h2>Parrilla · noviembre y diciembre</h2>
+      <p class="how"><span class="tag on">3 a 4 por semana</span>Después del lanzamiento, el feed alterna tres cosas: tus reels tal cual (sin editar), las fotos tipo álbum (tu foto como portada de disco + la canción desde Música de Instagram) y la gira. Las historias van todos los días. Los reels se suben originales; solo cambia la portada si hace falta.</p>
+      <p class="mono" style="color:var(--acido);margin:6px 0 10px">Fotos tipo álbum · una por canción</p>
+      <div class="grid st"><figure><img src="parrilla/album-01.png?v=1" alt="Portada álbum 1" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">Álbum 1</span><a class="dl" href="parrilla/album-01.png" download>Bajar</a></figcaption></figure><figure><img src="parrilla/album-02.png?v=1" alt="Portada álbum 2" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">Álbum 2</span><a class="dl" href="parrilla/album-02.png" download>Bajar</a></figcaption></figure><figure><img src="parrilla/album-03.png?v=1" alt="Portada álbum 3" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">Álbum 3</span><a class="dl" href="parrilla/album-03.png" download>Bajar</a></figcaption></figure><figure><img src="parrilla/album-04.png?v=1" alt="Portada álbum 4" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">Álbum 4</span><a class="dl" href="parrilla/album-04.png" download>Bajar</a></figcaption></figure><figure><img src="parrilla/album-05.png?v=1" alt="Portada álbum 5" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">Álbum 5</span><a class="dl" href="parrilla/album-05.png" download>Bajar</a></figcaption></figure><figure><img src="parrilla/album-06.png?v=1" alt="Portada álbum 6" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"><figcaption><span class="mono">Álbum 6</span><a class="dl" href="parrilla/album-06.png" download>Bajar</a></figcaption></figure></div>
+      <div class="parrilla" style="margin-top:22px">
+<div class="prow" style="--era:var(--acido)">
+          <span class="mono pdate">Mié 4 nov</span>
+          <span class="tag on">Lanzamiento</span>
+          <div><b>Las 9 piezas de la sección Hoy</b><span class="file" style="display:block;margin:6px 0">Ver arriba, de la 01 a la 09</span><span class="muted" style="font-size:13px">Audio: Cada una con su audio</span></div>
+          <div class="cap" id="pc0" style="font-size:13px">Los textos están en cada pieza.</div>
+        </div>
+<div class="prow" style="--era:var(--hielo)">
+          <span class="mono pdate">Vie 6 nov</span>
+          <span class="tag on">Foto álbum</span>
+          <div><b>Skyfall · Lado A1</b><span class="file" style="display:block;margin:6px 0">parrilla/album-01.png</span><span class="muted" style="font-size:13px">Audio: Música de IG: Skyfall (el drop)</span></div>
+          <div class="cap" id="pc1" style="font-size:13px">Skyfall.
+Mikro Teck Records · en Spotify.</div>
+        </div>
+<div class="prow" style="--era:var(--uv)">
+          <span class="mono pdate">Dom 8 nov</span>
+          <span class="tag on">Reel</span>
+          <div><b>Owl Frequencies · reel 01</b><span class="file" style="display:block;margin:6px 0">E:\Da Get Up\Houses\Sangre que llama\la-maquina-no-para Project\Videos\reel01.mp4</span><span class="muted" style="font-size:13px">Audio: El del video</span></div>
+          <div class="cap" id="pc2" style="font-size:13px">Owl Frequencies.
+Video completo en YouTube.</div>
+        </div>
+<div class="prow" style="--era:var(--calor)">
+          <span class="mono pdate">Mar 10 nov</span>
+          <span class="tag on">Foto álbum</span>
+          <div><b>Back To · Lado A2</b><span class="file" style="display:block;margin:6px 0">parrilla/album-02.png</span><span class="muted" style="font-size:13px">Audio: Música de IG: Back To</span></div>
+          <div class="cap" id="pc3" style="font-size:13px">Back To.
+En Spotify.</div>
+        </div>
+<div class="prow" style="--era:var(--hielo)">
+          <span class="mono pdate">Jue 12 nov</span>
+          <span class="tag on">Reel</span>
+          <div><b>Skyfall · reel 01</b><span class="file" style="display:block;margin:6px 0">E:\Da Get Up\Houses\Synths EP\01 Project\Skyfall Videos\reel01.mp4</span><span class="muted" style="font-size:13px">Audio: El del video</span></div>
+          <div class="cap" id="pc4" style="font-size:13px">Skyfall.
+Mañana empieza Medellín.</div>
+        </div>
+<div class="prow" style="--era:var(--acido)">
+          <span class="mono pdate">Vie 13 nov</span>
+          <span class="tag on">Historias</span>
+          <div><b>Takeover · noche 1</b><span class="file" style="display:block;margin:6px 0">En vivo, desde el celular</span><span class="muted" style="font-size:13px">Audio: El del show</span></div>
+          <div class="cap" id="pc5" style="font-size:13px">Llegada, soundcheck, 3–5 clips del show, gracias + próxima fecha. Lo mejor va a MDE.</div>
+        </div>
+<div class="prow" style="--era:var(--hielo)">
+          <span class="mono pdate">Sáb 14 nov</span>
+          <span class="tag on">Reel</span>
+          <div><b>Skyfall · Presentan</b><span class="file" style="display:block;margin:6px 0">E:\Da Get Up\Redes\Contenidos\exp-skyfall-es-01.mp4</span><span class="muted" style="font-size:13px">Audio: El del video</span></div>
+          <div class="cap" id="pc6" style="font-size:13px">Skyfall.
+Da Get Up × Mikro Teck Records.</div>
+        </div>
+<div class="prow" style="--era:var(--hueso)">
+          <span class="mono pdate">Lun 16 nov</span>
+          <span class="tag on">Foto álbum</span>
+          <div><b>Floating Memories · Lado A3</b><span class="file" style="display:block;margin:6px 0">parrilla/album-04.png</span><span class="muted" style="font-size:13px">Audio: Música de IG: Floating Memories</span></div>
+          <div class="cap" id="pc7" style="font-size:13px">Floating Memories.</div>
+        </div>
+<div class="prow" style="--era:var(--uv)">
+          <span class="mono pdate">Mié 18 nov</span>
+          <span class="tag on">Reel</span>
+          <div><b>Owl Frequencies · reel 02</b><span class="file" style="display:block;margin:6px 0">E:\Da Get Up\Houses\Sangre que llama\la-maquina-no-para Project\Videos\reel02.mp4</span><span class="muted" style="font-size:13px">Audio: El del video</span></div>
+          <div class="cap" id="pc8" style="font-size:13px">Owl Frequencies.</div>
+        </div>
+<div class="prow" style="--era:var(--calor)">
+          <span class="mono pdate">Vie 20 nov</span>
+          <span class="tag on">Reel</span>
+          <div><b>Tu hijo mío · POV manos</b><span class="file" style="display:block;margin:6px 0">E:\Da Get Up\Redes\Reels\tu hijo mio.mp4</span><span class="muted" style="font-size:13px">Audio: El del video</span></div>
+          <div class="cap" id="pc9" style="font-size:13px">Tu hijo mío.
+Manos en vivo, sin cortes.</div>
+        </div>
+<div class="prow" style="--era:var(--hueso)">
+          <span class="mono pdate">Dom 22 nov</span>
+          <span class="tag on">Reel</span>
+          <div><b>Camino · Lado B1 · El Andar</b><span class="file" style="display:block;margin:6px 0">parrilla/album-03.png + 30 s del máster de Camino (lo armo yo)</span><span class="muted" style="font-size:13px">Audio: Camino (inédito, máster)</span></div>
+          <div class="cap" id="pc10" style="font-size:13px">Camino.
+El primer paso de El Andar.</div>
+        </div>
+<div class="prow" style="--era:var(--hielo)">
+          <span class="mono pdate">Mar 24 nov</span>
+          <span class="tag on">Reel</span>
+          <div><b>Skyfall · reel 02 (mar)</b><span class="file" style="display:block;margin:6px 0">E:\Da Get Up\Houses\Synths EP\01 Project\Skyfall Videos\Reel02.mp4</span><span class="muted" style="font-size:13px">Audio: El del video</span></div>
+          <div class="cap" id="pc11" style="font-size:13px">Skyfall.</div>
+        </div>
+<div class="prow" style="--era:var(--acido)">
+          <span class="mono pdate">Jue 26 nov</span>
+          <span class="tag on">Carrusel</span>
+          <div><b>Takeover · gracias Medellín</b><span class="file" style="display:block;margin:6px 0">Fotos de las 14 noches (cuando las tengas)</span><span class="muted" style="font-size:13px">Audio: Música de IG: el tema que más sonó</span></div>
+          <div class="cap" id="pc12" style="font-size:13px">14 noches.
+Gracias, Medellín.</div>
+        </div>
+<div class="prow" style="--era:var(--uv)">
+          <span class="mono pdate">Sáb 28 nov</span>
+          <span class="tag on">Reel</span>
+          <div><b>Owl Frequencies · reel 03</b><span class="file" style="display:block;margin:6px 0">E:\Da Get Up\Houses\Sangre que llama\la-maquina-no-para Project\Videos\reel03.mp4</span><span class="muted" style="font-size:13px">Audio: El del video</span></div>
+          <div class="cap" id="pc13" style="font-size:13px">Owl Frequencies.</div>
+        </div>
+<div class="prow" style="--era:var(--acido)">
+          <span class="mono pdate">Lun 30 nov</span>
+          <span class="tag on">Foto álbum</span>
+          <div><b>My love for you · Lado A4</b><span class="file" style="display:block;margin:6px 0">parrilla/album-05.png</span><span class="muted" style="font-size:13px">Audio: Música de IG: My love for you</span></div>
+          <div class="cap" id="pc14" style="font-size:13px">My love for you.
+Video completo en YouTube.</div>
+        </div>
+<div class="prow" style="--era:var(--acido)">
+          <span class="mono pdate">Mié 2 dic</span>
+          <span class="tag on">Reel</span>
+          <div><b>Visual "Mirada" + canción</b><span class="file" style="display:block;margin:6px 0">visuales/mirada-4x5.mp4</span><span class="muted" style="font-size:13px">Audio: Música de IG: un tema tuyo</span></div>
+          <div class="cap" id="pc15" style="font-size:13px">Bajo la superficie.</div>
+        </div>
+<div class="prow" style="--era:var(--uv)">
+          <span class="mono pdate">Vie 4 dic</span>
+          <span class="tag on">Foto álbum</span>
+          <div><b>Owl Frequencies · Lado A5</b><span class="file" style="display:block;margin:6px 0">parrilla/album-06.png</span><span class="muted" style="font-size:13px">Audio: Música de IG: Owl Frequencies</span></div>
+          <div class="cap" id="pc16" style="font-size:13px">Owl Frequencies.</div>
+        </div>
+<div class="prow" style="--era:var(--hielo)">
+          <span class="mono pdate">Dom 6 dic</span>
+          <span class="tag on">Reel</span>
+          <div><b>Skyfall · versión en inglés</b><span class="file" style="display:block;margin:6px 0">E:\Da Get Up\Redes\Contenidos\exp-skyfall-en-01.mp4</span><span class="muted" style="font-size:13px">Audio: El del video</span></div>
+          <div class="cap" id="pc17" style="font-size:13px">Skyfall.
+Out now on Mikro Teck Records.</div>
+        </div>
+      </div>
+      <ul class="links" style="margin-top:22px">
+        <li><b>Sin fecha aún</b><span>Following Lights (decisión en Asana) · Carrusel "Europa 2022" (cuando pases las fotos) · Señal 03 Back To con su audio · My Love for You: el video completo va a YouTube, no al feed.</span></li>
+        <li><b>No va</b><span>Gravity (remix de Gorillaz) y los loops de terceros de la carpeta Visuales: derechos de autor.</span></li>
+        <li><b>Regla</b><span>Si un post rinde mucho en las primeras 24 h, se pauta. Si no, se sigue la parrilla sin cambiarla.</span></li>
       </ul>
     </div>
   </section>
