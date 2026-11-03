@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <style>
-:root{--noche:#0b0b0c;--carbon:#141416;--linea:#26262a;--hueso:#ede6da;--ceniza:#8a857d;--acido:#d4ff00;--uv:#7b2cff}
+:root{--noche:#0b0b0c;--carbon:#141416;--linea:#26262a;--hueso:#ede6da;--ceniza:#8a857d;--acido:#d4ff00;--uv:#7b2cff;--calor:#ff2e7e;--hielo:#3df5ff}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--noche);color:var(--hueso);font:15px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(45% 35% at 100% 0%,rgba(123,44,255,.18),transparent 70%)}
@@ -26,8 +26,8 @@ header p{margin-top:14px;max-width:60ch}
 .index{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
 .index a{font:500 11px "JetBrains Mono",monospace;letter-spacing:.1em;text-decoration:none;color:var(--hueso);border:1px solid var(--linea);padding:7px 9px}
 .index a:hover{border-color:var(--acido);color:var(--acido)}
-.post{padding:44px 0;border-bottom:1px solid var(--linea);display:grid;grid-template-columns:150px 1fr;gap:28px}
-.post .n{font-size:96px;color:var(--acido)}
+.post{--era:var(--acido);padding:44px 0;border-bottom:1px solid var(--linea);display:grid;grid-template-columns:150px 1fr;gap:28px}
+.post .n{font-size:96px;color:var(--era)}
 .post .when{margin-top:8px}
 .post h2{font-family:Archivo,sans-serif;font-stretch:62%;font-weight:800;text-transform:uppercase;font-size:34px;line-height:1;margin-bottom:6px}
 .post .how{color:#cfc8bc;margin-bottom:16px;max-width:70ch}
@@ -39,11 +39,12 @@ figure img,figure video{width:100%;display:block;background:#000}
 figcaption{display:flex;justify-content:space-between;align-items:center;padding:8px}
 a.dl{color:#000;background:var(--acido);text-decoration:none;padding:6px 9px;font:700 11px "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase}
 .file{display:inline-block;font:12px "JetBrains Mono",monospace;color:var(--acido);border:1px dashed rgba(212,255,0,.4);padding:8px 10px;margin-bottom:14px;word-break:break-all}
-.cap{border-left:2px solid var(--acido);background:var(--carbon);padding:14px 16px;white-space:pre-wrap;font-size:15px;max-width:60ch}
+.cap{border-left:2px solid var(--era,var(--acido));background:var(--carbon);padding:14px 16px;white-space:pre-wrap;font-size:15px;max-width:60ch}
 button{font:700 11px "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase;background:none;color:var(--acido);border:1px solid var(--acido);padding:9px 12px;cursor:pointer;margin-top:8px}
 button:hover{background:var(--acido);color:#000}
 .tag{display:inline-block;font:500 10px "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--linea);color:var(--ceniza);padding:4px 7px;margin-right:6px}
-.tag.on{border-color:var(--acido);color:var(--acido)}
+.tag.on{border-color:var(--era,var(--acido));color:var(--era,var(--acido))}
+.eras{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:14px}.eras span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:currentColor;margin-right:7px}
 .profile{display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:start}
 @media(max-width:700px){.profile{grid-template-columns:1fr}}
 .links{list-style:none;display:grid;gap:8px;margin-top:6px}
@@ -62,6 +63,7 @@ summary{cursor:pointer;font-family:Archivo,sans-serif;font-stretch:62%;font-weig
     <p class="mono muted">Da Get Up · @dagetup90 · Kit de Instagram</p>
     <h1 class="cond">Bajo la <span>superficie</span></h1>
     <p class="muted">Primero el perfil. Después, del 01 al 09 en orden, del 4 al 11 de noviembre. Baja cada pieza, copia el texto y publica.</p>
+    <p class="mono eras"><span style="color:var(--acido)">Ácido · Takeover</span><span style="color:var(--hielo)">Hielo · Skyfall</span><span style="color:var(--uv)">UV · Owl Frequencies</span><span style="color:var(--calor)">Calor · Back To</span></p>
     <nav class="index">
       <a href="#perfil">00 Perfil</a><a href="#p01">01</a><a href="#p02">02</a><a href="#p03">03</a><a href="#p04">04</a><a href="#p05">05</a><a href="#p06">06</a><a href="#p07">07</a><a href="#p08">08</a><a href="#p09">09</a><a href="#visuales">Visuales</a><a href="#extras">Historias</a>
     </nav>
@@ -160,7 +162,7 @@ Gira europea 2022 · Skyfall con Mikro Teck Records · El Andar, en desarrollo.
   </section>
 
   <!-- 04 -->
-  <section class="post" id="p04">
+  <section class="post" id="p04" style="--era:var(--hielo)">
     <div><div class="n cond">04</div><p class="mono muted when">Jue 5 nov</p></div>
     <div>
       <h2>Reel · Skyfall</h2>
@@ -175,7 +177,7 @@ Spotify en la bio.
   </section>
 
   <!-- 05 -->
-  <section class="post" id="p05">
+  <section class="post" id="p05" style="--era:var(--uv)">
     <div><div class="n cond">05</div><p class="mono muted when">Vie 6 nov</p></div>
     <div>
       <h2>Reel · Owl Frequencies</h2>
@@ -190,7 +192,7 @@ Video completo en YouTube, link en la bio.
   </section>
 
   <!-- 06 -->
-  <section class="post" id="p06">
+  <section class="post" id="p06" style="--era:var(--calor)">
     <div><div class="n cond">06</div><p class="mono muted when">Sáb 7 nov</p></div>
     <div>
       <h2>Reel · Back To</h2>
