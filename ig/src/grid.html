@@ -12,6 +12,8 @@ html,body{background:var(--noche);color:var(--hueso);overflow:hidden}
 .duo{position:absolute;inset:0;overflow:hidden;background:var(--c)}
 .duo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(var(--k,1.45)) brightness(var(--b,1.6));mix-blend-mode:multiply}
 .bw img{filter:grayscale(1) contrast(1.35) brightness(1.05)}
+.bw.lift img{filter:grayscale(1) contrast(1.25) brightness(1.7)}
+.real.lift img{filter:contrast(1.05) saturate(1.05) brightness(1.35)}
 .real img{filter:contrast(1.08) saturate(1.1)}
 .bw,.real{background:#000}.bw img,.real img{mix-blend-mode:normal}
 .grain{position:absolute;inset:0;background:radial-gradient(circle,rgba(11,11,12,.55) 30%,transparent 34%) 0 0/6px 6px;opacity:.22;mix-blend-mode:multiply;pointer-events:none}
@@ -34,6 +36,10 @@ const AVATAR = {
   B: { t: "Mirada · blanco y negro", src: A + "fest-verde.jpg", m: "bw", c: "#000", v: "", op: "25.5% 0", fx: 275, fy: 202, s: 2.3, ty: 228 },
   C: { t: "Mirada · luz real del show", src: A + "fest-verde.jpg", m: "real", c: "#000", v: "", op: "25.5% 0", fx: 275, fy: 202, s: 2.3, ty: 228 },
   D: { t: "Cantando · duotono ácido", src: A + "live-voz.jpg", m: "duo", c: "var(--acido)", v: "--b:2.3;--k:1.7", op: "50% 0", fx: 636, fy: 372, s: 3.3, ty: 110 },
+  F: { t: "Cantando · sin filtro", src: A + "live-voz.jpg", m: "real lift", c: "#000", v: "", op: "50% 0", fx: 636, fy: 372, s: 3.3, ty: 110 },
+  G: { t: "Cantando · blanco y negro", src: A + "live-voz.jpg", m: "bw lift", c: "#000", v: "", op: "50% 0", fx: 636, fy: 372, s: 3.3, ty: 110 },
+  H: { t: "Cantando · duotono UV", src: A + "live-voz.jpg", m: "duo", c: "#9d5cff", v: "--b:2.4;--k:1.7", op: "50% 0", fx: 636, fy: 372, s: 3.3, ty: 110 },
+  I: { t: "Cantando · duotono hielo", src: A + "live-voz.jpg", m: "duo", c: "var(--hielo)", v: "--b:2.4;--k:1.7", op: "50% 0", fx: 636, fy: 372, s: 3.3, ty: 110 },
   E: { t: "Búho", logo: true },
 };
 function avatar(o, px) {
@@ -67,18 +73,15 @@ const title = (t, c = 'var(--hueso)') => `<div class="cond" style="position:abso
 const fade = `<div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,11,12,.92) 0%,rgba(11,11,12,0) 42%)"></div>`;
 const owl = (c = 'hueso', w = 120) => `<img src="${BUHO(c)}" style="position:absolute;right:60px;top:60px;width:${w}px">`;
 const POSTS = {
-  1: { f: "Foto", era: "Ácido", n: "Mirada", html: photo(A + "fest-verde.jpg", "28% 30%", "var(--acido)", "duo", "--b:1.8;--k:1.5") + owl("negro") },
-  2: { f: "Reel", era: "Ácido", n: "Live session", html: photo(G + "live-12.jpg", "50% 62%", "var(--acido)", "duo", "--b:1.6;--k:1.4") + fade + title("Live<br>session") + tag("We Rock Studio") },
-  3: { f: "Foto", era: "Noche", n: "Logo", html: `<div style="position:absolute;inset:0;background:radial-gradient(70% 55% at 50% 42%,#1a0b33,#0b0b0c 70%);display:grid;place-items:center"><img src="${LOGO("hueso")}" style="width:62%"></div>` + tag("Productor · DJ · Live act", "var(--ceniza)") },
+  1: { f: "Carrusel", era: "Ácido", n: "Medellín Takeover", html: `<div class="duo real"><img src="/dagetup-medellin/ig/takeover-feed-m1.png" style="object-position:50% 50%"></div>` },
+  2: { f: "Reel", era: "Hielo", n: "Lejanía ft. Teosinte", html: photo(G + "lejania.jpg", "50% 30%", "var(--hielo)", "duo", "--b:1.45;--k:1.35") + fade + title("Lejanía") + tag("ft. Teosinte") },
+  3: { f: "Reel", era: "Noche", n: "Sin hayarlo al 100", html: photo(G + "sinhayarlo.jpg", "50% 35%", "#000", "bw") + fade + title("Sin hayarlo<br>al 100") + tag("Estudio · en vivo") },
   4: { f: "Reel", era: "Hielo", n: "Skyfall", html: photo(G + "sky-14.jpg", "50% 60%", "var(--hielo)", "duo", "--b:1.9;--k:1.5") + fade + title("Skyfall") + tag("Mikro Teck Records") },
-  5: { f: "Reel", era: "UV", n: "Owl Frequencies", html: photo(A + "owl-poster.jpg", "58% 50%", "var(--uv)", "duo", "--b:2.1;--k:1.5") + fade + title("Owl<br>Frequencies") + tag("Video oficial") },
-  6: { f: "Reel", era: "Calor", n: "Back To", html: photo(A + "bio-humo.webp", "50% 22%", "var(--calor)", "duo", "--b:1.5;--k:1.35") + fade + title("Back To") + tag("En Spotify") },
+  5: { f: "Reel", era: "UV", n: "Owl Frequencies × Actor Cómico", html: photo(G + "actorcomico.jpg", "50% 30%", "#9d5cff", "duo", "--b:1.7;--k:1.4") + fade + title("Owl<br>Frequencies") + tag("con Actor Cómico") },
+  6: { f: "Reel", era: "Calor", n: "Back To", html: photo(G + "backto.jpg", "50% 50%", "var(--calor)", "duo", "--b:1.5;--k:1.4") + fade + title("Back To") + tag("En Spotify") },
   7: { f: "Reel", era: "Ácido", n: "Tu foto en puntos", html: `<div class="duo real"><img src="${G}duo-9.jpg" style="object-position:50% 40%"></div>` },
   8: { f: "Reel", era: "Ácido", n: "Medellín", html: photo(A + "fest-carpa.jpg", "55% 50%", "var(--acido)", "duo", "--b:1.9;--k:1.5") + fade + title("Medellín") + tag("13 — 26 · 11") },
-  9: { f: "Carrusel", era: "Ácido", n: "Takeover", html: `<div style="position:absolute;inset:0;background:#0b0b0c"></div><img src="${BUHO("acido")}" style="position:absolute;left:60px;top:70px;width:200px"><div class="cond" style="position:absolute;left:56px;bottom:200px;font-size:212px;color:var(--acido)">Medellín<br>Takeover</div><div class="mono" style="position:absolute;left:62px;bottom:110px;font-size:42px;letter-spacing:.14em">13 — 26 · 11 · 2026</div><div class="mono" style="position:absolute;left:62px;bottom:60px;font-size:24px;color:var(--ceniza)">14 noches · Booking abierto</div>` },
-  // slides 2–3 del carrusel 09 en 3:4: las piezas 4:5 existentes sobre noche
-  92: { html: `<div style="position:absolute;inset:0;background:#0b0b0c;display:grid;place-items:center"><img src="/dagetup-medellin/ig/takeover-feed-m2.png" style="width:100%"></div>` },
-  93: { html: `<div style="position:absolute;inset:0;background:#0b0b0c;display:grid;place-items:center"><img src="/dagetup-medellin/ig/takeover-feed-m3.png" style="width:100%"></div>` },
+  9: { f: "Foto", era: "Ácido", n: "Takeover", html: `<div style="position:absolute;inset:0;background:#0b0b0c"></div><img src="${BUHO("acido")}" style="position:absolute;left:60px;top:70px;width:200px"><div class="cond" style="position:absolute;left:56px;bottom:200px;font-size:212px;color:var(--acido)">Medellín<br>Takeover</div><div class="mono" style="position:absolute;left:62px;bottom:110px;font-size:42px;letter-spacing:.14em">13 — 26 · 11 · 2026</div><div class="mono" style="position:absolute;left:62px;bottom:60px;font-size:24px;color:var(--ceniza)">14 noches · Booking abierto</div>` },
 };
 const CARD = [
   { t: "Medellín<br>Takeover", sub: "13 — 26 · 11 · 2026" },
