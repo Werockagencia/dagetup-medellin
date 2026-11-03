@@ -47,7 +47,8 @@ const DOT = (cols, rows, on, color, d) => { let s = ''; for (let y = 0; y < rows
 const FONT = { M: ['10001','11011','10101','10101','10001','10001','10001'], D: ['11110','10001','10001','10001','10001','10001','11110'], E: ['11111','10000','10000','11110','10000','10000','11111'] };
 const word = (w, color, d) => { const L = [...w]; const cols = L.length * 6 - 1; return DOT(cols, 7, (x, y) => { const li = Math.floor(x / 6), cx = x % 6; return cx < 5 && FONT[L[li]][y][cx] === '1'; }, color, d); };
 const HL = [
-  { t: 'Medellín', c: 'var(--acido)', g: () => word('MDE', '#d4ff00', 30) },
+  { t: 'MDE', c: 'var(--acido)', g: () => word('MDE', '#d4ff00', 30) },
+  { t: 'Shows', c: 'var(--acido)', g: () => DOT(15, 15, (x, y) => { const dx = x - 7, dy = y - 7, r = Math.hypot(dx, dy); if (r > 7.5) return false; return Math.abs(r - 7) < .5 || (y === 7 && r < 7) || (Math.abs(Math.abs(dx) - 3.6 * Math.sqrt(Math.max(0, 1 - dy * dy / 49))) < .5 && r < 7); }, '#d4ff00', 30) },
   { t: 'Música', c: 'var(--hielo)', g: () => DOT(15, 15, (x, y) => { const r = Math.hypot(x - 7, y - 7); return (Math.abs(r - 7) < .5 || Math.abs(r - 4.6) < .5 || r < 1.6) ? true : false; }, '#3df5ff', 30) },
   { t: 'Live', c: 'var(--calor)', g: () => { const h = [3, 6, 9, 5, 11, 7, 4, 8, 10, 6, 3]; return DOT(11, 11, (x, y) => 10 - y < h[x] ? true : false, '#ff2e7e', 34); } },
   { t: 'Visuales', c: 'var(--uv)', g: () => `<img src="${BUHO('blanco')}" style="width:560px;filter:drop-shadow(0 0 0 #7b2cff)">` },
@@ -55,8 +56,8 @@ const HL = [
 ];
 function hl(i, px = 1080, story = true) {
   const h = HL[i];
-  const glyph = i === 3 ? `<img src="${BUHO('blanco')}" style="width:100%;filter:brightness(0) saturate(100%) invert(22%) sepia(98%) saturate(6000%) hue-rotate(262deg) brightness(105%)">` : h.g();
-  const inner = `<div style="position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(circle 520px at 50% 50%,color-mix(in srgb,${h.c} 16%,#0b0b0c),#0b0b0c 100%)"><div style="width:${i === 3 ? 560 : 420}px;height:420px;display:grid;place-items:center">${glyph}</div></div>`;
+  const glyph = h.t === 'Visuales' ? `<img src="${BUHO('blanco')}" style="width:100%;filter:brightness(0) saturate(100%) invert(22%) sepia(98%) saturate(6000%) hue-rotate(262deg) brightness(105%)">` : h.g();
+  const inner = `<div style="position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(circle 520px at 50% 50%,color-mix(in srgb,${h.c} 16%,#0b0b0c),#0b0b0c 100%)"><div style="width:${h.t === 'Visuales' ? 560 : 420}px;height:420px;display:grid;place-items:center">${glyph}</div></div>`;
   return inner;
 }
 
@@ -79,12 +80,27 @@ const POSTS = {
   92: { html: `<div style="position:absolute;inset:0;background:#0b0b0c;display:grid;place-items:center"><img src="/dagetup-medellin/ig/takeover-feed-m2.png" style="width:100%"></div>` },
   93: { html: `<div style="position:absolute;inset:0;background:#0b0b0c;display:grid;place-items:center"><img src="/dagetup-medellin/ig/takeover-feed-m3.png" style="width:100%"></div>` },
 };
+const CARD = [
+  { t: "Medellín<br>Takeover", sub: "13 — 26 · 11 · 2026" },
+  { t: "Shows", sub: "Europa 2022 — Medellín 2026" },
+  { t: "Música", sub: "Skyfall · Owl Frequencies · Back To" },
+  { t: "Live", sub: "Voz · teclados · Ableton" },
+  { t: "Visuales", sub: "Señales · loops · el búho" },
+];
+function card(i) {
+  const h = HL[i], c = CARD[i];
+  return `<div style="position:absolute;inset:0;background:radial-gradient(circle 700px at 50% 34%,color-mix(in srgb,${h.c} 12%,#0b0b0c),#0b0b0c 100%)"></div>
+    <div style="position:absolute;left:0;right:0;top:330px;height:600px;display:grid;place-items:center;transform:scale(.72)">${hl(i).replace(/^<div style="position:absolute;inset:0;/, "<div style=\"position:relative;width:1080px;height:600px;").replace(/background:radial-gradient[^"]*"/, "\"")}</div>
+    <div class="cond" style="position:absolute;left:0;right:0;top:1000px;text-align:center;font-size:200px;color:${h.c}">${c.t}</div>
+    <div class="mono" style="position:absolute;left:0;right:0;top:${c.t.includes("<br>") ? 1400 : 1240}px;text-align:center;font-size:32px;line-height:1.8">${c.sub}</div>
+    <img src="${LETRAS("hueso")}" style="position:absolute;left:390px;bottom:150px;width:300px;opacity:.75">`;
+}
 const post = i => `<div style="position:absolute;inset:0">${POSTS[i].html}${i > 90 ? "" : "<div class=\"grain\"></div>"}</div>`;
 
 // ---------- Mockup del perfil ----------
 function perfil(o) {
   const W = 1180, cell = (W - 8) / 3;
-  const hls = HL.map((h, i) => `<div style="display:grid;justify-items:center;gap:14px"><div style="width:150px;height:150px;border-radius:50%;padding:5px;border:2px solid #3a3a3e"><div style="position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden"><img src="/dagetup-medellin/ig/perfil/destacadas/destacada-${i + 1}.png" style="width:100%;height:100%;object-fit:cover"></div></div><span style="font:600 24px Inter;color:#ede6da">${h.t}</span></div>`).join('');
+  const hls = HL.map((h, i) => `<div style="display:grid;justify-items:center;gap:14px"><div style="width:146px;height:146px;border-radius:50%;padding:5px;border:2px solid #3a3a3e"><div style="position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden"><img src="/dagetup-medellin/ig/perfil/destacadas/portada-${i + 1}-${["mde","shows","musica","live","visuales","booking"][i]}.png" style="width:100%;height:100%;object-fit:cover"></div></div><span style="font:600 23px Inter;color:#ede6da">${h.t}</span></div>`).join('');
   const order = [9, 8, 7, 6, 5, 4, 3, 2, 1];
   const grid = order.map(i => `<div style="position:relative;width:${cell}px;height:${cell * 4 / 3}px;overflow:hidden"><div style="position:absolute;left:0;top:0;width:1080px;height:1440px;transform:scale(${cell / 1080});transform-origin:0 0">${post(i)}</div>${POSTS[i].f === 'Reel' ? '<svg style="position:absolute;right:16px;top:16px" width="34" height="34" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>' : POSTS[i].f === 'Carrusel' ? '<svg style="position:absolute;right:16px;top:16px" width="34" height="34" viewBox="0 0 24 24"><rect x="7" y="3" width="13" height="13" rx="2" fill="none" stroke="#fff" stroke-width="2"/><rect x="3" y="7" width="13" height="13" rx="2" fill="#fff"/></svg>' : ''}</div>`).join('');
   return `<div style="width:${W}px;background:#000;color:#ede6da;font-family:Inter,sans-serif">
@@ -97,7 +113,7 @@ function perfil(o) {
       <b style="font-weight:700">Da Get Up · DJ & Live Act</b><br><span style="color:#8a857d">Músico/banda</span><br>Bajo la superficie<br>DJ · productor · live act con voz<br>Skyfall · Mikro Teck Records<br>Medellín Takeover 13—26.11 ↓<br><span style="color:#9ec5ff">werock.space/dagetup y 4 más</span>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:28px 40px"><div style="background:#d4ff00;color:#0b0b0c;border-radius:14px;padding:20px;text-align:center;font:700 28px Inter">Seguir</div><div style="background:#262628;border-radius:14px;padding:20px;text-align:center;font:700 28px Inter">Mensaje</div></div>
-    <div style="display:flex;gap:44px;padding:10px 40px 36px">${hls}</div>
+    <div style="display:flex;gap:26px;padding:10px 40px 36px">${hls}</div>
     <div style="display:grid;grid-template-columns:repeat(3,${cell}px);gap:4px">${grid}</div>
   </div>`;
 }
@@ -106,6 +122,7 @@ window.READY = (async () => {
   if (k === 'avatar') { size(1080, 1080); root.innerHTML = avatar(q.get('o') || 'A', 1080); }
   else if (k === 'hl') { size(1080, 1920); root.innerHTML = `<div style="position:absolute;inset:0">${hl(+q.get('i'))}</div>`; }
   else if (k === 'post') { size(1080, 1440); root.innerHTML = post(+q.get('i')); }
+  else if (k === 'card') { size(1080, 1920); root.innerHTML = card(+q.get('i')); }
   else if (k === 'booking') { size(1080, 1920); root.innerHTML = `<div style="position:absolute;inset:0;background:radial-gradient(70% 45% at 50% 40%,#1a0b33,#0b0b0c 75%)"></div><img src="${LOGO("hueso")}" style="position:absolute;left:190px;top:420px;width:700px"><div class="cond" style="position:absolute;left:0;right:0;top:900px;text-align:center;font-size:190px;color:var(--acido)">Booking</div><div class="mono" style="position:absolute;left:0;right:0;top:1130px;text-align:center;font-size:34px;line-height:2">Live act · DJ set<br>Colombia · Internacional</div><div class="mono" style="position:absolute;left:0;right:0;top:1400px;text-align:center;font-size:30px;color:var(--ceniza);line-height:2">werock.space/dagetup<br>DM o WhatsApp en la bio</div>`; }
   else if (k === 'perfil') { root.innerHTML = perfil(q.get('o') || 'A'); }
   await document.fonts.ready;
