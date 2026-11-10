@@ -838,6 +838,13 @@ footer a{color:var(--mute)}
       a.dataset.track = 'date_click'; a.dataset.loc = 'ruta_' + n;
       a.setAttribute('aria-label', 'Consultar ' + a.dataset.date);
       a.innerHTML = '<span class="d">' + DAYS[wd] + ' · Nov</span><span class="go" aria-hidden="true">↗</span><strong>' + n + '</strong><span class="s">' + 'Disponible' + '</span>';
+      if (n === 22) {
+        a.className += ' conf';
+        a.removeAttribute('data-wa');
+        a.href = '#ruta';
+        a.setAttribute('aria-label', 'Fecha confirmada: domingo 22 de noviembre, Sunset Pool Party en Los Patios');
+        a.querySelector('.s').textContent = 'Confirmada';
+      }
       if (n === 20) {
         a.className += ' conf';
         a.removeAttribute('data-wa');
@@ -852,7 +859,7 @@ footer a{color:var(--mute)}
         a.setAttribute('aria-label', a.dataset.date + ': reservado');
         a.querySelector('.s').textContent = 'Reservado';
       }
-      if ([15, 22].indexOf(n) > -1) {
+      if ([15].indexOf(n) > -1) {
         a.className += ' tent';
         a.setAttribute('aria-label', a.dataset.date + ': por confirmar, consultar');
         a.querySelector('.s').textContent = 'Por confirmar';
