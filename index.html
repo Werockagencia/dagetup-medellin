@@ -216,6 +216,20 @@ section{position:relative}
 .night:hover .d,.night:hover .s,.night:focus-visible .d,.night:focus-visible .s{color:var(--on-acid)}
 .night .go{position:absolute;top:12px;right:14px;opacity:0;transition:opacity .2s}
 .night:hover .go,.night:focus-visible .go{opacity:1}
+.night.conf{background:var(--acid);color:var(--on-acid)}
+.night.conf .d,.night.conf .s{color:var(--on-acid)}
+.night.res strong{color:var(--dim)}
+.night.res .s{color:var(--mute)}
+.night.res .s::before{content:""}
+.night.tent .s{color:var(--bone)}
+.night.tent .s::before{content:"◐ "}
+.conf-card{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:center;margin-bottom:36px;padding:16px;border:1px solid var(--acid);background:var(--ink-2);scroll-margin-top:96px}
+@media (min-width:760px){.conf-card{grid-template-columns:minmax(0,360px) 1fr;gap:48px;padding:24px}}
+.conf-card img{display:block;width:100%;height:auto}
+.conf-card .tag{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--acid);margin:0 0 14px}
+.conf-card h3{font-weight:900;font-variation-settings:"wdth" 62;font-size:clamp(52px,7vw,96px);line-height:.88;text-transform:uppercase;margin:0 0 18px}
+.conf-card .when{font-family:var(--mono);font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 14px}
+.conf-card .desc{color:var(--mute);margin:0;max-width:46ch}
 
 /* Skyfall */
 .rel-grid{display:grid;gap:44px;align-items:center}
@@ -446,7 +460,7 @@ footer a{color:var(--mute)}
   <div class="wrap hero-inner">
     <div class="flyer-top">
       <a class="new" href="#skyfall" data-track="skyfall_click" data-loc="hero">Out now <span>Skyfall · Mikro Teck Records ↓</span></a>
-      <p class="status" style="margin:0"><i aria-hidden="true"></i> Medellín · 13–26 nov 2026 · Booking abierto</p>
+      <p class="status" style="margin:0"><i aria-hidden="true"></i> Medellín · 13–26 nov 2026 · Primera fecha: 20 nov</p>
     </div>
     <h1 id="hero-title">
       <span class="a">Da Get Up</span>
@@ -496,6 +510,15 @@ footer a{color:var(--mute)}
       <h2 class="h2 rv" id="ruta-title" style="margin:0">14 noches.<br><em>Medellín.</em></h2>
       <div class="ruta-legend rv"><span class="w"><i></i>Fin de semana</span><span><i></i>Entre semana</span></div>
     </div>
+    <article class="conf-card rv" id="verso-y-maquina">
+      <img src="assets/img/flyer-calvario.png" width="1080" height="1350" loading="lazy" alt="Flyer de Verso y Máquina: noche de freestyle, viernes 20 de noviembre en El Calvario, Medellín, con Da Get Up como artista invitado.">
+      <div>
+        <p class="tag">Fecha confirmada · 01</p>
+        <h3>Verso y Máquina</h3>
+        <p class="when">Viernes 20 nov · El Calvario · Medellín</p>
+        <p class="desc">Noche de freestyle con Da Get Up como artista invitado: Live Act y DJ Set.</p>
+      </div>
+    </article>
     <div class="cal rv" id="cal"></div>
     <p class="note rv">Selecciona una noche para consultar disponibilidad por WhatsApp.</p>
   </div>
@@ -689,9 +712,10 @@ footer a{color:var(--mute)}
     <ol class="tl" reversed>
       <li class="rv"><span class="y">2026</span><h3>Skyfall · Mikro Teck Records</h3><span class="where">Release · Hollywood, FL</span></li>
       <li class="rv"><span class="y">2025</span><h3>Festival La Kasa x la Ventana</h3><span class="where">Colombia</span></li>
+      <li class="rv"><span class="y">2025</span><h3>Karavana Soundset · Marzo</h3><span class="where">Colombia</span></li>
       <li class="rv"><span class="y">2022</span><h3>Cierre · Mundial de Ultimate Frisbee Masters</h3><span class="where">Irlanda</span></li>
       <li class="rv"><span class="y">2022</span><h3>Gira europea · IE · BE · FR · ES</h3><span class="where">Europa</span></li>
-      <li class="rv"><span class="y">—</span><h3>Karavana Soundset · Palomino Beach · FBA · Palomino Electrónico</h3><span class="where">Colombia</span></li>
+      <li class="rv"><span class="y">—</span><h3>Palomino Beach · FBA · Palomino Electrónico</h3><span class="where">Colombia</span></li>
       <li class="rv"><span class="y">2019</span><h3>Festival de Juventudes Cajicá</h3><span class="where">Cajicá, CO</span></li>
       <li class="rv"><span class="y">2016</span><h3>Concierto Noche de Muertos · El Paso</h3><span class="where">Cajicá, CO</span></li>
     </ol>
@@ -814,6 +838,25 @@ footer a{color:var(--mute)}
       a.dataset.track = 'date_click'; a.dataset.loc = 'ruta_' + n;
       a.setAttribute('aria-label', 'Consultar ' + a.dataset.date);
       a.innerHTML = '<span class="d">' + DAYS[wd] + ' · Nov</span><span class="go" aria-hidden="true">↗</span><strong>' + n + '</strong><span class="s">' + 'Disponible' + '</span>';
+      if (n === 20) {
+        a.className += ' conf';
+        a.removeAttribute('data-wa');
+        a.href = '#verso-y-maquina';
+        a.setAttribute('aria-label', 'Fecha confirmada: viernes 20 de noviembre, Verso y Máquina');
+        a.querySelector('.s').textContent = 'Confirmada';
+      }
+      if ([17, 18, 19, 24, 25, 26].indexOf(n) > -1) {
+        a.className += ' res';
+        a.removeAttribute('data-wa');
+        a.href = '#contacto';
+        a.setAttribute('aria-label', a.dataset.date + ': reservado');
+        a.querySelector('.s').textContent = 'Reservado';
+      }
+      if ([15, 21].indexOf(n) > -1) {
+        a.className += ' tent';
+        a.setAttribute('aria-label', a.dataset.date + ': por confirmar, consultar');
+        a.querySelector('.s').textContent = 'Por confirmar';
+      }
       cal.appendChild(a);
     }
   }
