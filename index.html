@@ -460,7 +460,7 @@ footer a{color:var(--mute)}
   <div class="wrap hero-inner">
     <div class="flyer-top">
       <a class="new" href="#skyfall" data-track="skyfall_click" data-loc="hero">Out now <span>Skyfall · Mikro Teck Records ↓</span></a>
-      <p class="status" style="margin:0"><i aria-hidden="true"></i> Medellín · 13–26 nov 2026 · Primera fecha: 20 nov</p>
+      <p class="status" style="margin:0"><i aria-hidden="true"></i> Medellín · 13–26 nov 2026 · Fechas: 20 y 22 nov</p>
     </div>
     <h1 id="hero-title">
       <span class="a">Da Get Up</span>
@@ -517,6 +517,15 @@ footer a{color:var(--mute)}
         <h3>Verso y Máquina</h3>
         <p class="when">Viernes 20 nov · El Calvario · Medellín</p>
         <p class="desc">Noche de freestyle con Da Get Up como artista invitado: Live Act y DJ Set.</p>
+      </div>
+    </article>
+    <article class="conf-card rv" id="pool-party">
+      <img src="assets/img/flyer-patios.png" width="1080" height="1350" loading="lazy" alt="Flyer de Sunset Pool Party: domingo 22 de noviembre de 3 a 6 p. m. en Los Patios, Medellín, con Da Get Up en DJ set de afro house.">
+      <div>
+        <p class="tag">Fecha confirmada · 02</p>
+        <h3>Sunset Pool Party</h3>
+        <p class="when">Domingo 22 nov · 3 — 6 PM · Los Patios · Medellín</p>
+        <p class="desc">Tardeado al atardecer con Da Get Up en DJ Set de afro house y orgánico.</p>
       </div>
     </article>
     <div class="cal rv" id="cal"></div>
@@ -841,7 +850,7 @@ footer a{color:var(--mute)}
       if (n === 22) {
         a.className += ' conf';
         a.removeAttribute('data-wa');
-        a.href = '#ruta';
+        a.href = '#pool-party';
         a.setAttribute('aria-label', 'Fecha confirmada: domingo 22 de noviembre, Sunset Pool Party en Los Patios');
         a.querySelector('.s').textContent = 'Confirmada';
       }
