@@ -230,6 +230,11 @@ section{position:relative}
 .conf-card h3{font-weight:900;font-variation-settings:"wdth" 62;font-size:clamp(52px,7vw,96px);line-height:.88;text-transform:uppercase;margin:0 0 18px}
 .conf-card .when{font-family:var(--mono);font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 14px}
 .conf-card .desc{color:var(--mute);margin:0;max-width:46ch}
+.lb{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(5,5,5,.92);cursor:zoom-out}
+.lb.on{display:flex}
+.lb img{max-width:min(100%,560px);max-height:calc(100vh - 32px);width:auto;height:auto;border:1px solid var(--acid)}
+.lb button{position:absolute;top:12px;right:12px;font:700 14px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--on-acid);background:var(--acid);border:0;padding:12px 14px;cursor:pointer}
+.conf-card img{cursor:zoom-in}
 
 /* Skyfall */
 .rel-grid{display:grid;gap:44px;align-items:center}
@@ -850,14 +855,14 @@ footer a{color:var(--mute)}
       if (n === 22) {
         a.className += ' conf';
         a.removeAttribute('data-wa');
-        a.href = '#pool-party';
+        a.href = 'assets/img/flyer-patios.png'; a.dataset.flyer = 'assets/img/flyer-patios.png';
         a.setAttribute('aria-label', 'Fecha confirmada: domingo 22 de noviembre, Sunset Pool Party en Los Patios');
         a.querySelector('.s').textContent = 'Confirmada';
       }
       if (n === 20) {
         a.className += ' conf';
         a.removeAttribute('data-wa');
-        a.href = '#verso-y-maquina';
+        a.href = 'assets/img/flyer-calvario.png'; a.dataset.flyer = 'assets/img/flyer-calvario.png';
         a.setAttribute('aria-label', 'Fecha confirmada: viernes 20 de noviembre, Verso y Máquina');
         a.querySelector('.s').textContent = 'Confirmada';
       }
@@ -876,6 +881,22 @@ footer a{color:var(--mute)}
       cal.appendChild(a);
     }
   }
+  // --- Flyer en grande: clic en una fecha confirmada o en el flyer de la tarjeta.
+  var lb = document.createElement("div");
+  lb.className = "lb"; lb.setAttribute("role", "dialog"); lb.setAttribute("aria-modal", "true"); lb.setAttribute("aria-label", "Flyer");
+  lb.innerHTML = "<button type=\"button\">Cerrar ✕</button><img alt=\"\">";
+  document.body.appendChild(lb);
+  function openFlyer(src, alt) { lb.querySelector("img").src = src; lb.querySelector("img").alt = alt || "Flyer"; lb.classList.add("on"); lb.querySelector("button").focus(); }
+  function closeFlyer() { lb.classList.remove("on"); }
+  lb.addEventListener("click", closeFlyer);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeFlyer(); });
+  document.querySelectorAll("[data-flyer]").forEach(function (a) {
+    a.addEventListener("click", function (e) { e.preventDefault(); openFlyer(a.dataset.flyer, a.getAttribute("aria-label")); });
+  });
+  document.querySelectorAll(".conf-card img").forEach(function (img) {
+    img.addEventListener("click", function () { openFlyer(img.getAttribute("src"), img.alt); });
+  });
+
   document.querySelectorAll('[data-wa]').forEach(function (a) {
     var text = a.dataset.date
       ? 'Hola, quisiera consultar el ' + a.dataset.date + ' para Da Get Up en Medellín (Medellín Takeover). ¿Podemos revisar formato y condiciones de booking?'
