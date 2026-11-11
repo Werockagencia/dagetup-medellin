@@ -465,7 +465,7 @@ footer a{color:var(--mute)}
   <div class="wrap hero-inner">
     <div class="flyer-top">
       <a class="new" href="#skyfall" data-track="skyfall_click" data-loc="hero">Out now <span>Skyfall · Mikro Teck Records ↓</span></a>
-      <p class="status" style="margin:0"><i aria-hidden="true"></i> Medellín · 13–26 nov 2026 · Fechas: 20 y 22 nov</p>
+      <p class="status" style="margin:0"><i aria-hidden="true"></i> Medellín · 13–26 nov 2026 · Fechas: 14, 20 y 22 nov</p>
     </div>
     <h1 id="hero-title">
       <span class="a">Da Get Up</span>
@@ -515,10 +515,19 @@ footer a{color:var(--mute)}
       <h2 class="h2 rv" id="ruta-title" style="margin:0">14 noches.<br><em>Medellín.</em></h2>
       <div class="ruta-legend rv"><span class="w"><i></i>Fin de semana</span><span><i></i>Entre semana</span></div>
     </div>
+    <article class="conf-card rv" id="apertura-envy">
+      <img src="assets/img/flyer-envy.png" width="1080" height="1350" loading="lazy" alt="Flyer de la apertura del Medellín Takeover: sábado 14 de noviembre desde las 7 p. m. en Envy Rooftop, Parque Lleras, con Da Get Up en DJ set de house.">
+      <div>
+        <p class="tag">Fecha confirmada · 01</p>
+        <h3>Apertura · Envy Rooftop</h3>
+        <p class="when">Sábado 14 nov · 7 PM · Envy Rooftop · Parque Lleras</p>
+        <p class="desc">Arranca la gira: noche de house en lo alto del Parque Lleras, con Da Get Up en DJ Set.</p>
+      </div>
+    </article>
     <article class="conf-card rv" id="verso-y-maquina">
       <img src="assets/img/flyer-calvario.png" width="1080" height="1350" loading="lazy" alt="Flyer de Verso y Máquina: noche de freestyle, viernes 20 de noviembre en El Calvario, Medellín, con Da Get Up como artista invitado.">
       <div>
-        <p class="tag">Fecha confirmada · 01</p>
+        <p class="tag">Fecha confirmada · 02</p>
         <h3>Verso y Máquina</h3>
         <p class="when">Viernes 20 nov · El Calvario · Medellín</p>
         <p class="desc">Noche de freestyle con Da Get Up como artista invitado: Live Act y DJ Set.</p>
@@ -527,7 +536,7 @@ footer a{color:var(--mute)}
     <article class="conf-card rv" id="pool-party">
       <img src="assets/img/flyer-patios.png" width="1080" height="1350" loading="lazy" alt="Flyer de Sunset Pool Party: domingo 22 de noviembre de 3 a 6 p. m. en Los Patios, Medellín, con Da Get Up en DJ set de afro house.">
       <div>
-        <p class="tag">Fecha confirmada · 02</p>
+        <p class="tag">Fecha confirmada · 03</p>
         <h3>Sunset Pool Party</h3>
         <p class="when">Domingo 22 nov · 3 — 6 PM · Los Patios · Medellín</p>
         <p class="desc">Tardeado al atardecer con Da Get Up en DJ Set de afro house y orgánico.</p>
@@ -857,6 +866,13 @@ footer a{color:var(--mute)}
         a.removeAttribute('data-wa');
         a.href = 'assets/img/flyer-patios.png'; a.dataset.flyer = 'assets/img/flyer-patios.png';
         a.setAttribute('aria-label', 'Fecha confirmada: domingo 22 de noviembre, Sunset Pool Party en Los Patios');
+        a.querySelector('.s').textContent = 'Confirmada';
+      }
+      if (n === 14) {
+        a.className += ' conf';
+        a.removeAttribute('data-wa');
+        a.href = 'assets/img/flyer-envy.png'; a.dataset.flyer = 'assets/img/flyer-envy.png';
+        a.setAttribute('aria-label', 'Fecha confirmada: sábado 14 de noviembre, apertura en Envy Rooftop');
         a.querySelector('.s').textContent = 'Confirmada';
       }
       if (n === 20) {
